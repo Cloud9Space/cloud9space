@@ -2140,7 +2140,6 @@ fieldset[disabled] .s-btn {
   right: 0;
   width: 100%;
   height: 100%;
-  background: rgba(19, 177, 205, 0.95);
   content: " ";
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
@@ -2175,6 +2174,31 @@ fieldset[disabled] .s-btn {
   opacity: 1;
   -webkit-transform: translate3d(0, -50%, 0);
   transform: translate3d(0, -50%, 0);
+}
+.s-portfolio__caption--cd {
+position: relative;
+display: block;
+}
+.s-portfolio__caption--cd:after  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 177, 205, 0.95);
+
+  content: " ";
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  transition-duration: 400ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-portfolio__item:hover .s-portfolio__caption--cd {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Paginations v1
