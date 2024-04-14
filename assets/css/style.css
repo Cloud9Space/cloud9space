@@ -4375,7 +4375,6 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-service-2 {
-  background-image: url(../images/service/service-bg-shape-2.png);
   background-size: auto;
   background-repeat: no-repeat;
   background-position: top left;
@@ -4389,7 +4388,6 @@ html.menu-is-open .menu-canvas-layer {
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../images/service/service-bg-shape-1.png);
   background-position: center right;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4648,7 +4646,6 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-service-4 {
-  background-image: url(../images/service/service-bg-image-3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -13907,7 +13904,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-project-3 {
-  padding-bottom: 186px;
+  padding-bottom: 80px;
   position: relative;
   z-index: 10;
 }
@@ -13923,7 +13920,6 @@ html.menu-is-open .menu-canvas-layer {
   top: 0;
   width: 100%;
   height: 465px;
-  background-image: url(../images/project/project_project_bg.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
