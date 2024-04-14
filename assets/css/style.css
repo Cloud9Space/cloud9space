@@ -4244,7 +4244,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-page-banner {
-  background-image: url(../images/banner/inner_bg.png);
+  background-image: url(../images/banner/9.png);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8591,7 +8591,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-cta-3 {
-  background-image: url(../images/cta/cta-section.png);
+  background-image: url(../images/cta/10.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -8620,7 +8620,7 @@ html.menu-is-open .menu-canvas-layer {
   border-color: #FC3737;
 }
 .rs-cta-3.rs-cta-4 {
-  background-image: url(../images/cta/cta-section-orange.png);
+  background-image: url(../images/cta/10.png);
 }
 .rs-cta-3.rs-cta-4 .rs-cta-3__box a {
   color: #0a0a0a;
