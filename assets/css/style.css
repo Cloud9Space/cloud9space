@@ -719,6 +719,17 @@ hr {
 .full-width-header .rs-header .menu-area .rs-menu-area .logo-area img.dark-logo {
   display: none;
 }
+.full-width-header .rs-header .menu-area .rs-menu-area .logo-area a:first-child {
+  color: white;  
+  display: flex;
+  align-items: center;
+  p{padding-left: 1rem; }
+  font-size: 1.5rem; 
+  font-weight: 600;
+}
+.full-width-header .rs-header .menu-area .rs-menu-area .logo-area a:first-child :hover {
+  color:  #F26F20;  
+}
 .full-width-header .rs-header .menu-area .rs-menu-area .logo-area a:last-child {
   display: none;
 }
@@ -14849,7 +14860,7 @@ html.menu-is-open .menu-canvas-layer {
   margin-top: -3px;
 }
 .rs-project-details__sidebar .sidebar-category-contact {
-  background-image: url(../images/project/project-cta-bg.jpg);
+  background-image: url(../customerservice.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
