@@ -431,7 +431,7 @@
                             <h3 class="title split-in-fade">Let’s discuss the project</h3>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews strategy foster collaborative thinking to further the overall value proposition diversity and empowerment.</p>
                         </div>
-                        <form id="contact-form" action="https://formspree.io/f/xpzgbgjv" method="post" onsubmit="handleSubmit(event)">
+                        <form action="https://formspree.io/f/mbjnpeeb" method="POST" >
                           <div class="row">
                               <div class="col-lg-6">
                                   <div class="input-box">
@@ -463,20 +463,25 @@
                       </form>
                       
                       <script>
-                          function handleSubmit(event) {
-                              event.preventDefault(); // Prevent the default form submission
+                          // function handleSubmit(event) {
+                          //     event.preventDefault(); // Prevent the default form submission
                       
-                              // Clear form fields
-                              document.getElementById("name").value = "";
-                              document.getElementById("email").value = "";
-                              document.getElementById("topic").value = "";
-                              document.getElementById("phone").value = "";
-                              document.getElementById("message").value = "";
+                          //     // Clear form fields
+                          //     document.getElementById("name").value = "";
+                          //     document.getElementById("email").value = "";
+                          //     document.getElementById("topic").value = "";
+                          //     document.getElementById("phone").value = "";
+                          //     document.getElementById("message").value = "";
                       
-                              // Add a buffer
-                              setTimeout(function() {
-                                  alert("Message sent successfully!");
-                              }, 1000); // Change 1000 to the desired delay in milliseconds
+                          //     // Add a buffer
+                          //     setTimeout(function() {
+                          //         alert("Message sent successfully!");
+                          //     }, 1000); // Change 1000 to the desired delay in milliseconds
+                          // }
+                          window.onbeforeunload = () => {
+                            for(const form of document.getElementsByTagName('form')) {
+                              form.reset();
+                            }
                           }
                       </script>
                       </div>
