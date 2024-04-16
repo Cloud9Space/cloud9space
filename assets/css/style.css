@@ -960,6 +960,10 @@ hr {
 }
 .full-width-header .rs-header .menu-area.sticky .logo-area a:last-child {
   display: block;
+  color: #ffffff;
+}
+.full-width-header .rs-header .menu-area .rs-menu-area .logo-area a:last-child :hover {
+  color:  #F26F20;  
 }
 @media only screen and (max-width: 767px) {
   .full-width-header .rs-header .menu-area.sticky .logo-area a img {
