@@ -14030,6 +14030,7 @@ html.menu-is-open .menu-canvas-layer {
   z-index: 10;
   margin: 10px -1px 0;
   overflow: hidden;
+  height: 30rem;
 }
 .rs-project-3__item .rs-thumb img {
   width: 100%;
