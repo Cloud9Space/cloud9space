@@ -10,7 +10,8 @@
         background-position: center;
         position: relative; 
         z-index: 10;
-        background-image: url(../images/banner/home-banner-bg.jpg);
+        // background-image: url(../images/banner/home-banner-bg.jpg);
+        background-color: #010047;
         @media #{$desktop-device} {
             padding: 170px 0;
         }
@@ -487,7 +488,8 @@
 
 
   .rs-banner-2{
-    background-image: url(../images/banner/home-banner-bg-2.jpg);
+    // background-image: url(../images/banner/home-banner-bg-2.jpg);
+    background-color: #010047;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

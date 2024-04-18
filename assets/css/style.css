@@ -3007,7 +3007,8 @@ html.menu-is-open .menu-canvas-layer {
   background-position: center;
   position: relative;
   z-index: 10;
-  background-image: url(../images/banner/home-banner-bg.jpg);
+  /* background-image: url(../images/banner/home-banner-bg.jpg); */
+  background-color: #010047;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rs-banner--slider-item {
@@ -3452,7 +3453,8 @@ html.menu-is-open .menu-canvas-layer {
   }
 }
 .rs-banner-2 {
-  background-image: url(../images/banner/home-banner-bg-2.jpg);
+  /* background-image: url(../images/banner/home-banner-bg-2.jpg); */
+  background-color: #010047;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
