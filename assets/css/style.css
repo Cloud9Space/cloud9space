@@ -918,11 +918,11 @@ hr {
 }
 @media only screen and (max-width: 575px) {
   .full-width-header .rs-header .menu-area .rs-menu-area .header-btn a {
-    display: none;
+    display: block;
   }
 }
 .full-width-header .rs-header .menu-area .rs-menu-area .canvasmenu-trigger.view-md {
-  display: none;
+  display: block;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .full-width-header .rs-header .menu-area .rs-menu-area .canvasmenu-trigger.view-md {
