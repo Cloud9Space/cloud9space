@@ -7374,7 +7374,7 @@ html.menu-is-open .menu-canvas-layer {
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../images/featured/servicess-bg-shap2.png);
+  background-image: url(../images/featured/services-bg-shap2.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -7489,7 +7489,7 @@ html.menu-is-open .menu-canvas-layer {
   }
 }
 .rs-featured__list-box ul {
-  background-image: url(../images/featured/servicess-feature-2-box-effect.png);
+  background-image: url(../images/featured/services-feature-2-box-effect.png);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
