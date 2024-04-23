@@ -128,10 +128,10 @@ html.dark-scheme body{
 			}
 		}
 	}
-	& .single-service{
+	& .single-services{
 		background: #002559;
 	}
-	.single-service__item{
+	.single-services__item{
 		border-color: #EEECFD2E;
 		& a{
 			color: $white;
@@ -620,9 +620,9 @@ html.dark-scheme body{
 			}
 		}
 	}
-	.rs-service-2{
+	.rs-services-2{
 		background-color: #002559;
-		& .rs-service-2__item{
+		& .rs-services-2__item{
 			background-color: #00214F;
 			box-shadow: 0 0 0 1px #FFFFFF1F;
 			& .title{
@@ -632,7 +632,7 @@ html.dark-scheme body{
 	}
 	.rs-featured-2{
 		background-color: #00214F;
-		background-image: url(../images/featured/service-4-cbg-abstract.png);
+		background-image: url(../images/featured/services-4-cbg-abstract.png);
 		& .rs-section-title {
 			& .title{
 				color: $white;
@@ -912,7 +912,7 @@ html.dark-scheme body{
 			}
 		}
 	}
-	.rs-service-3{
+	.rs-services-3{
 		background-color: #00214F;
 		.rs-background-text {
 			span{
@@ -928,7 +928,7 @@ html.dark-scheme body{
 				color: $white;
 			}
 		}
-		.rs-service-3__item{
+		.rs-services-3__item{
 			background: #002559;
 			.rs-number-box{
 				background-color: #0E346A;
@@ -1284,21 +1284,21 @@ html.dark-scheme body{
 			}
 		}
 	}
-	.rs-service-4{
-		background-image: url(../images/service/service-4-bg.jpg);
+	.rs-services-4{
+		background-image: url(../images/services/services-4-bg.jpg);
 		background-color: #00214F;
 		.rs-shape-4{
 			display: none;
 		}
-		.rs-service-4__single-item{
+		.rs-services-4__single-item{
 			background: #002559;
-			.rs-service-text{
+			.rs-services-text{
 				p{
 					color: #ccc;
 				}
 			}
 		}
-		.rs-service-4__btn {
+		.rs-services-4__btn {
 			a{
 				border-color: $theme-color-2;
 				background: $theme-color-2;
@@ -1635,16 +1635,16 @@ html.dark-scheme body{
 			}
 		}
 	}
-	.rs-service-solution{
+	.rs-services-solution{
 		background: #00214F;
-		.rs-service-title {
+		.rs-services-title {
 			.title{
 				color: $white;
 			}
 		}
-		.rs-service-solution__box-1,
-		.rs-service-solution__box-2{
-			.service-solution-item{
+		.rs-services-solution__box-1,
+		.rs-services-solution__box-2{
+			.services-solution-item{
 				background: #022353;
 			}
 		}
@@ -1660,9 +1660,9 @@ html.dark-scheme body{
 			}
 		}
 	}
-	.rs-service-5{
+	.rs-services-5{
 		background: #00214F;
-		.rs-service-5__title {
+		.rs-services-5__title {
 			.title{
 				color: $white;
 			}
@@ -1670,9 +1670,9 @@ html.dark-scheme body{
 				color: #ccc;
 			}
 		}
-		.rs-service-5__item{
+		.rs-services-5__item{
 			background-color: #022353;
-			background-image: url(../images/service/service-dark-1.png);
+			background-image: url(../images/services/services-dark-1.png);
 			.content {
 				.title{
 					color: $white;
@@ -2015,7 +2015,7 @@ html.dark-scheme body{
 	}
 
 	&.serivice-page-1{
-		.rs-service-grid{
+		.rs-services-grid{
 			background-color: #00214F;
 			padding-bottom: 120px;
 			.rs-section-title{
@@ -2025,7 +2025,7 @@ html.dark-scheme body{
 					}
 				}
 			}
-			.rs-service-grid-top-text{
+			.rs-services-grid-top-text{
 				p{
 					color: #ccc;
 				}
@@ -2044,7 +2044,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-why-choose{
+		.rs-services-why-choose{
 			background-color: #00214F;
 			.rs-why-choose-2__thumb{
 				.rs-counter-content{
@@ -2069,11 +2069,11 @@ html.dark-scheme body{
 		}
 	}
 	
-	&.service-page-2{
+	&.services-page-2{
 		.rs-about-why-choose{
 			background-color: #00214F;
 		}
-		.rs-service-grid-2{
+		.rs-services-grid-2{
 			background: #002559;
 			.rs-section-title{
 				&.black {
@@ -2082,7 +2082,7 @@ html.dark-scheme body{
 					}
 				}
 			}
-			.rs-service-3__item{
+			.rs-services-3__item{
 				background: #00214F;
 			}
 		}
@@ -2092,15 +2092,15 @@ html.dark-scheme body{
 		.rs-brand{
 			background: #00214F;
 		}
-		.rs-service-pricing{
+		.rs-services-pricing{
 			padding-top: 110px;
 		}
 	}
 	
-	&.service-details-1{
-		.rs-service-details{
+	&.services-details-1{
+		.rs-services-details{
 			background-color: #00214F;
-			.rs-service-details__sidebar{
+			.rs-services-details__sidebar{
 				border-color: #F2EFFC21;
 				.sidebar-common{
 					background-color: #002559;
@@ -2124,7 +2124,7 @@ html.dark-scheme body{
 					}
 				}
 			}
-			.rs-service-details__content{
+			.rs-services-details__content{
 				.rs-content{
 					.title{
 						color: $white;
@@ -2135,7 +2135,7 @@ html.dark-scheme body{
 					.quote-text{
 						background: #002559;
 					}
-					.rs-service-list-box{
+					.rs-services-list-box{
 						.rs-list{
 							ul{
 								li{
@@ -2144,7 +2144,7 @@ html.dark-scheme body{
 							}
 						}
 					}
-					.rs-service-benefit{
+					.rs-services-benefit{
 						background: #002559;
 					}
 					.rs-faq__wrapper{
@@ -2175,8 +2175,8 @@ html.dark-scheme body{
 		}
 	}
 
-	&.service-details-2{
-		.rs-service-details-about{
+	&.services-details-2{
+		.rs-services-details-about{
 			background: #00214F;
 			.rs-section-title{
 				&.black {
@@ -2189,9 +2189,9 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details-features{
+		.rs-services-details-features{
 			background: #00214F;
-			.rs-service-details-features__item{
+			.rs-services-details-features__item{
 				background: #002559;
 				border: 1px solid #FFFFFF0F;
 				& .title{
@@ -2202,7 +2202,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details-why-Choose{
+		.rs-services-details-why-Choose{
 			background-color: #002559;
 			.rs-section-title{
 				&.black {
@@ -2215,7 +2215,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details-why-Choose__skill{
+		.rs-services-details-why-Choose__skill{
 			.rs-progress-skill{
 				.rs-progress__title{
 					color: $white;
@@ -2227,7 +2227,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details-pricing{
+		.rs-services-details-pricing{
 			background: #00214F;
 			.rs-section-title{
 				&.black {
@@ -2237,7 +2237,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details-pricing__item{
+		.rs-services-details-pricing__item{
 			background: #002559;
 			border-color: #EBEBEB0D;
 			.pricing-content{
@@ -2264,11 +2264,11 @@ html.dark-scheme body{
 		}
 	}
 
-	&.service-details-page-3{ 
-		.rs-service-details-3{
+	&.services-details-page-3{ 
+		.rs-services-details-3{
 			background: #00214F;
 		}
-		.rs-service-details__sidebar{
+		.rs-services-details__sidebar{
 			border-color: #F2EFFC21;
 			.sidebar-common{
 				.sidebar-top-title{
@@ -2295,7 +2295,7 @@ html.dark-scheme body{
 				}
 			}
 		}
-		.rs-service-details__content {
+		.rs-services-details__content {
 			.rs-content {
 				.title{
 					color: $white;
