@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
-import logoblack from "../assets/logo-black.webp";
-import logoc9s from "../assets/c9s-logo-new.jpeg";
+
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },

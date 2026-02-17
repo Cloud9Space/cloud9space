@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle } from "lucide-react";
+import aboutHeroImage from "../assets/home.png";
 
 const highlights = [
   "Geospatial Intelligence (GIS)",
@@ -17,6 +18,7 @@ const About = () => {
     <section id="about" className="py-28 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Left visual */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -24,16 +26,19 @@ const About = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="glass-card rounded-3xl p-1">
-              <div className="rounded-3xl overflow-hidden bg-gradient-to-br from-muted to-card aspect-[4/3] flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-                <div className="relative z-10 text-center p-10">
-                  <div className="text-6xl font-heading font-bold gradient-text mb-2">C9S</div>
-                  <p className="text-muted-foreground text-sm">Technology · Innovation · Impact</p>
-                </div>
+            <div className="glass-card rounded-3xl overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                {/* gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 z-10 pointer-events-none rounded-3xl" />
+                <img
+                  src={aboutHeroImage}
+                  alt="Cloud9Space technology"
+                  className="w-full h-full object-cover object-[center_20%]"
+                />
               </div>
             </div>
-            {/* Decorative elements */}
+
+            {/* Decorative blobs */}
             <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
             <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-secondary/10 blur-2xl" />
           </motion.div>
