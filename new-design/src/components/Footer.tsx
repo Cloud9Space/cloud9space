@@ -1,13 +1,17 @@
+import logo from "../assets/logo.png";
+
 const Footer = () => {
   return (
     <footer className="border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-heading font-bold text-primary-foreground text-xs">
-              C9
+            <div className="h-15 w-15 rounded-lg flex items-center justify-center font-heading font-bold text-primary-foreground text-sm">
+              <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
             </div>
-            <span className="font-heading font-bold text-foreground">Cloud9Space</span>
+            <span className="font-heading text-xl font-bold text-foreground">
+              Cloud9Space
+            </span>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-muted-foreground">

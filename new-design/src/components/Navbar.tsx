@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
+import logo from "../assets/logo.png";
+import logoblack from "../assets/logo-black.webp";
+import logoc9s from "../assets/c9s-logo-new.jpeg";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -32,8 +34,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between px-6">
         <a href="#home" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-heading font-bold text-primary-foreground text-sm">
-            C9
+          <div className="h-15 w-15 rounded-lg flex items-center justify-center font-heading font-bold text-primary-foreground text-sm">
+            <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
           </div>
           <span className="font-heading text-xl font-bold text-foreground">
             Cloud9Space
