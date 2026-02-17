@@ -51,7 +51,7 @@ const About = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               At Cloud9Space, we've evolved from a software service provider into a
-              full-spectrum technology partner specializing in AI/ML, Data Engineering,
+              full-spectrum technology partner specializing in Application Development, Data Engineering,
               GIS and QA. We've helped startups and enterprises alike harness advanced
               analytics, predictive modeling and intelligent automation.
             </p>

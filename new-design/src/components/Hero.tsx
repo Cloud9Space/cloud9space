@@ -43,7 +43,7 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="text-lg text-muted-foreground max-w-lg mb-10 leading-relaxed"
             >
-              Cloud9Space delivers cutting-edge AI/ML solutions, scalable software
+              Cloud9Space delivers cutting-edge solutions, scalable software
               engineering and geospatial insights for businesses transforming the future.
             </motion.p>
 

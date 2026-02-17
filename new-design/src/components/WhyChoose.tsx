@@ -46,7 +46,7 @@ const WhyChoose = () => {
               <span className="gradient-text">Innovative Solutions</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Blending AI, ML, and geospatial insights to navigate complexities and
+              Blending and geospatial insights to navigate complexities and
               secure a position of proactive dominance in a dynamic operational ecosystem.
             </p>
 
@@ -54,7 +54,7 @@ const WhyChoose = () => {
             <div className="grid grid-cols-3 gap-6">
               {[
                 { num: "20+", label: "Team Members" },
-                { num: "50+", label: "Projects Done" },
+                { num: "20+", label: "Projects Done" },
                 { num: "99%", label: "Client Satisfaction" },
               ].map((stat) => (
                 <div key={stat.label}>

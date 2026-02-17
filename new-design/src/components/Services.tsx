@@ -6,7 +6,7 @@ const services = [
   {
     icon: Globe,
     title: "Geospatial Intelligence (GIS)",
-    description: "Satellite imagery analysis, land parcel segmentation, vegetation and water detection, AI-driven farm scoring, and geospatial dashboards.",
+    description: "Satellite imagery analysis, land parcel segmentation, vegetation and water detection, , and geospatial dashboards.",
     num: "01",
   },
   {
