@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Send } from "lucide-react";
 const contactInfo = [
   { icon: Phone, label: "Phone", value: "+91 86690 23458", href: "tel:+918669023458" },
   { icon: Mail, label: "Email", value: "contact@cloud9space.com", href: "mailto:contact@cloud9space.com" },
-  { icon: MapPin, label: "Address", value: "Splendour County, Wagholi, Pune", href: "#" },
+  { icon: MapPin, label: "Address", value: "Pune, Maharashtra, India", href: "#" },
 ];
 
 const Contact = () => {
