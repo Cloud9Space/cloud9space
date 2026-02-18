@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Quote } from "lucide-react";
 import eyLogo from "../assets/ey-logo-black.png";
 import kentrixLogo from "../assets/kentrix_logo_new.jpeg";
+import terraHelixLogo from "../assets/terra.png";
 
 type Testimonial = {
   quote: string;
@@ -29,6 +30,15 @@ const testimonials: Testimonial[] = [
     company: "Kentrix.ai",
     Logo: () => <img src={kentrixLogo} alt="Kentrix.ai Logo" className="h-9 w-auto object-contain" />,
   },
+  {
+    quote:
+      "Working with Cloud9Space has been a seamless experience from start to finish. They provided us with a dedicated team who truly felt like an extension of our own company. \n\nWhat impressed me most wasn't just their technical expertise, but their reliability — they consistently hit deadlines and handled challenges with a practical, problem-solving mindset. \n\nI'm incredibly happy with the results they delivered and would highly recommend them to anyone looking for a team they can actually trust to get the job done right.",
+    name: "Devdatta Tengshe",
+    title: "Co-Founder",
+    company: "Terra Helix",
+    Logo: () => <img src={terraHelixLogo} alt="Terra Helix Logo" className="h-9 w-auto object-contain" />,
+  },
+
 ];
 
 const TestimonialCard = ({ t, delay }: { t: Testimonial; delay: number }) => {
@@ -103,9 +113,8 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        {/* 2 cards centered, max width constrained so they don't stretch too wide */}
-        <div className="max-w-3xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <TestimonialCard key={t.name} t={t} delay={i * 0.1} />
             ))}
