@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Working with Cloud9Space has been a seamless experience from start to finish. They provided us with a dedicated team who truly felt like an extension of our own company. \n\nWhat impressed me most wasn't just their technical expertise, but their reliability — they consistently hit deadlines and handled challenges with a practical, problem-solving mindset. \n\nI'm incredibly happy with the results they delivered and would highly recommend them to anyone looking for a team they can actually trust to get the job done right.",
+      "Working with Cloud9Space has been a seamless experience from start to finish. They provided us with a dedicated team who truly felt like an extension of our own company. \n\nWhat impressed me most wasn't just their technical expertise, but their reliability \n\nI'm incredibly happy with the results they delivered and would highly recommend them to anyone looking for a team they can actually trust to get the job done right.",
     name: "Devdatta Tengshe",
     title: "Co-Founder",
     company: "Terra Helix",
