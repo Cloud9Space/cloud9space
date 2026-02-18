@@ -12,10 +12,28 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
+    setStatus("sending");
+
+    try {
+      const res = await fetch("https://formspree.io/f/mbjnpeeb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -50,6 +68,7 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground text-sm focus:outline-none focus:border-primary/50 transition-colors"
                 placeholder="John Doe"
+                required
               />
             </div>
             <div>
@@ -60,6 +79,7 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground text-sm focus:outline-none focus:border-primary/50 transition-colors"
                 placeholder="john@example.com"
+                required
               />
             </div>
             <div>
@@ -70,14 +90,28 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
                 placeholder="Tell us about your project..."
+                required
               />
             </div>
+
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold text-sm hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2"
+              disabled={status === "sending"}
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold text-sm hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
             >
-              Send Message <Send size={16} />
+              {status === "sending" ? "Sending..." : <> Send Message <Send size={16} /> </>}
             </button>
+
+            {status === "success" && (
+              <p className="text-sm text-center text-green-400">
+                ✓ Message sent! We'll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-center text-red-400">
+                Something went wrong. Please try again or email us directly.
+              </p>
+            )}
           </motion.form>
 
           {/* Contact Info */}
