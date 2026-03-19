@@ -7,7 +7,6 @@ import terraHelixLogo from "../assets/terra.png";
 
 type Testimonial = {
   quote: string;
-  name: string;
   title?: string;
   company?: string;
   Logo?: React.FC;
@@ -68,15 +67,7 @@ const TestimonialCard = ({ t, delay }: { t: Testimonial; delay: number }) => {
       </p>
 
       <div className="mt-6 pt-5 border-t border-border/50 flex items-center gap-3">
-        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center flex-shrink-0">
-          <span className="text-[11px] font-bold text-primary/80 font-heading">
-            {t.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
-          </span>
-        </div>
         <div>
-          <div className="font-heading font-semibold text-sm text-foreground leading-tight">
-            {t.name}
-          </div>
           <div className="text-[11px] text-muted-foreground mt-0.5">
             {[t.title, t.company].filter(Boolean).join(" — ")}
           </div>
