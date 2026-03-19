@@ -17,7 +17,6 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "Shubham and his team have shown superb versatility and reliability in dealing with a high velocity engagement!",
-    name: "Bibaswan Dutta",
     title: "Director",
     company: "EY Consulting",
     Logo: () => <img src={eyLogo} alt="EY Logo" className="h-9 w-auto object-contain" />,
@@ -25,7 +24,6 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "We at Kentrix.ai have repeatedly partnered with Cloud9Space for geospatial software development outsourcing, and our experience has consistently been excellent.\n\nShubham and his team are highly reliable, professional, and delivery-focused. The quality of work met exactly what was agreed upon, and timelines were honored without exception.\n\nA dependable technology partner for complex geospatial builds.",
-    name: "Rahoul Andres",
     title: "CEO",
     company: "Kentrix.ai",
     Logo: () => <img src={kentrixLogo} alt="Kentrix.ai Logo" className="h-9 w-auto object-contain" />,
@@ -33,7 +31,6 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "Working with Cloud9Space has been a seamless experience from start to finish. They provided us with a dedicated team who truly felt like an extension of our own company. \n\nWhat impressed me most wasn't just their technical expertise, but their reliability \n\nI'm incredibly happy with the results they delivered and would highly recommend them to anyone looking for a team they can actually trust to get the job done right.",
-    name: "Devdatta Tengshe",
     title: "Co-Founder",
     company: "Terra Helix",
     Logo: () => <img src={terraHelixLogo} alt="Terra Helix Logo" className="h-9 w-auto object-contain" />,
