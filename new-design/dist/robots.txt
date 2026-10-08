@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://cloud9space.com/sitemap.xml
