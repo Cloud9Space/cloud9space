@@ -1,239 +1,380 @@
-import { useMemo } from "react";
-import { contourPath, noise, tok } from "./primitives";
+import { useEffect, useRef } from "react";
 
 /**
- * "Operations console" illustration: a map canvas with raster, contour, vector and network
- * layers, alongside pipeline / model / layer panels. Purely decorative.
+ * Hero illustration: a slowly turning dotted globe with a handful of live connections and an
+ * orbiting satellite. Drawn on canvas (one draw pass per frame) and coloured from the section's
+ * CSS tokens, so it follows theme / tone changes. Purely decorative.
  */
+
+const DEG = Math.PI / 180;
+const TILT = 0.38; // rad — tips the north pole toward the viewer
+const SPIN = (Math.PI * 2) / 110_000; // one revolution every ~110 s
+const DOTS = 1600;
+
+type Vec = [number, number, number];
+
+const fromLatLon = (lat: number, lon: number): Vec => {
+  const cl = Math.cos(lat * DEG);
+  return [cl * Math.sin(lon * DEG), Math.sin(lat * DEG), cl * Math.cos(lon * DEG)];
+};
+
+/** Abstract "landmass" field — gives the globe structure without shipping real geodata. */
+const land = (lat: number, lon: number) =>
+  Math.sin(lon * 2.1 + 0.6) * Math.cos(lat * 2.6) +
+  0.55 * Math.sin(lon * 4.7 + lat * 1.9 + 1.3) +
+  0.35 * Math.cos(lon * 1.3 - lat * 3.7);
+
+// Fibonacci sphere: evenly spread points, split into land / sea.
+const POINTS = Array.from({ length: DOTS }, (_, i) => {
+  const y = 1 - (2 * (i + 0.5)) / DOTS;
+  const r = Math.sqrt(1 - y * y);
+  const phi = i * Math.PI * (3 - Math.sqrt(5));
+  const v: Vec = [r * Math.sin(phi), y, r * Math.cos(phi)];
+  return { v, land: land(Math.asin(y), phi % (Math.PI * 2)) > 0.45 };
+});
+
+const SITES: Vec[] = [
+  fromLatLon(18.5, 73.8), // 0 Pune
+  fromLatLon(51.5, -0.1), // 1 London
+  fromLatLon(1.35, 103.8), // 2 Singapore
+  fromLatLon(25.2, 55.3), // 3 Dubai
+  fromLatLon(40.7, -74), // 4 New York
+  fromLatLon(-33.9, 151.2), // 5 Sydney
+];
+const ROUTES: [number, number][] = [
+  [0, 1],
+  [0, 2],
+  [0, 3],
+  [1, 4],
+  [2, 5],
+];
+
+const slerp = (a: Vec, b: Vec, t: number): Vec => {
+  const dot = Math.min(1, Math.max(-1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2]));
+  const w = Math.acos(dot);
+  const s = Math.sin(w) || 1;
+  const k1 = Math.sin((1 - t) * w) / s;
+  const k2 = Math.sin(t * w) / s;
+  return [a[0] * k1 + b[0] * k2, a[1] * k1 + b[1] * k2, a[2] * k1 + b[2] * k2];
+};
+
+// Pre-computed lifted great-circle arcs (world space).
+const ARCS = ROUTES.map(([a, b]) => {
+  const A = SITES[a];
+  const B = SITES[b];
+  const angle = Math.acos(A[0] * B[0] + A[1] * B[1] + A[2] * B[2]);
+  const lift = 0.06 + 0.22 * (angle / Math.PI);
+  return Array.from({ length: 64 }, (_, i) => {
+    const t = i / 63;
+    const p = slerp(A, B, t);
+    const h = 1 + lift * Math.sin(Math.PI * t);
+    return [p[0] * h, p[1] * h, p[2] * h] as Vec;
+  });
+});
+
+const ORBIT: Vec[] = Array.from({ length: 160 }, (_, i) => {
+  const th = (i / 160) * Math.PI * 2;
+  const inc = 0.42;
+  const x = 1.34 * Math.cos(th);
+  const z = 1.34 * Math.sin(th);
+  return [x * Math.cos(inc), x * Math.sin(inc), z];
+});
+
+const easeOut = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
+
 export const HeroVisual = () => {
-  const cells = useMemo(() => {
-    const out: { x: number; y: number; v: number }[] = [];
-    for (let i = 0; i < 10; i++) for (let j = 0; j < 9; j++) out.push({ x: i, y: j, v: noise(i, j) });
-    return out;
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!wrap || !canvas || !ctx) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let size = 0;
+    let dpr = 1;
+    let raf = 0;
+    let visible = true;
+    let start = performance.now();
+    let colors = { primary: "", accent: "", fg: "", card: "", bg: "" };
+
+    const readColors = () => {
+      const cs = getComputedStyle(canvas);
+      const get = (n: string) => cs.getPropertyValue(`--${n}`).trim();
+      colors = { primary: get("primary"), accent: get("accent"), fg: get("foreground"), card: get("card"), bg: get("background") };
+    };
+    const c = (token: string, a: number) => `hsl(${token} / ${a})`;
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      size = wrap.clientWidth;
+      canvas.width = Math.round(size * dpr);
+      canvas.height = Math.round(size * dpr);
+      canvas.style.width = `${size}px`;
+      canvas.style.height = `${size}px`;
+    };
+
+    const draw = (now: number) => {
+      const t = reduced ? 4000 : Math.max(0, now - start);
+      const intro = reduced ? 1 : easeOut(t / 1600);
+      const rot = -1.1 + t * SPIN;
+      const cr = Math.cos(rot);
+      const sr = Math.sin(rot);
+      const ct = Math.cos(TILT);
+      const st = Math.sin(TILT);
+      const cx = size / 2;
+      const cy = size / 2;
+      const R = size * 0.34 * (0.94 + 0.06 * intro);
+      const unit = size / 560;
+
+      // world → view: spin about Y, then tilt about X.
+      const view = (v: Vec): Vec => {
+        const x = v[0] * cr + v[2] * sr;
+        const z0 = v[2] * cr - v[0] * sr;
+        return [x, v[1] * ct - z0 * st, v[1] * st + z0 * ct];
+      };
+      const hidden = (p: Vec) => p[2] < 0 && p[0] * p[0] + p[1] * p[1] < 1;
+      const sx = (p: Vec) => cx + R * p[0];
+      const sy = (p: Vec) => cy - R * p[1];
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, size, size);
+      ctx.globalAlpha = intro;
+
+      // Halo
+      const halo = ctx.createRadialGradient(cx, cy, R * 0.75, cx, cy, R * 1.44);
+      halo.addColorStop(0, c(colors.primary, 0.16));
+      halo.addColorStop(1, c(colors.primary, 0));
+      ctx.fillStyle = halo;
+      ctx.fillRect(0, 0, size, size);
+
+      // Orbit — back half (behind the globe)
+      const orbit = ORBIT.map(view);
+      const strokeOrbit = (front: boolean) => {
+        ctx.beginPath();
+        let pen = false;
+        orbit.forEach((p, i) => {
+          const isFront = p[2] >= 0;
+          if (isFront !== front) {
+            pen = false;
+            return;
+          }
+          if (!pen) ctx.moveTo(sx(p), sy(p));
+          else ctx.lineTo(sx(p), sy(p));
+          pen = true;
+          if (i === orbit.length - 1 && orbit[0][2] >= 0 === front) ctx.lineTo(sx(orbit[0]), sy(orbit[0]));
+        });
+        ctx.strokeStyle = c(colors.fg, front ? 0.16 : 0.07);
+        ctx.lineWidth = unit;
+        ctx.setLineDash([2 * unit, 5 * unit]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      };
+      strokeOrbit(false);
+
+      // Satellite position along the orbit
+      const satIdx = Math.floor(((t / 26_000) % 1) * ORBIT.length);
+      const sat = orbit[satIdx];
+      const drawSat = () => {
+        const x = sx(sat);
+        const y = sy(sat);
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 14 * unit);
+        g.addColorStop(0, c(colors.accent, 0.55));
+        g.addColorStop(1, c(colors.accent, 0));
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, 14 * unit, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = c(colors.accent, 1);
+        ctx.beginPath();
+        ctx.arc(x, y, 2.6 * unit, 0, Math.PI * 2);
+        ctx.fill();
+      };
+      if (sat[2] < 0) drawSat();
+
+      // Sphere body
+      const body = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R);
+      body.addColorStop(0, c(colors.card, 1));
+      body.addColorStop(1, c(colors.bg, 1));
+      ctx.fillStyle = body;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Graticule: equator + two parallels (static under spin)
+      ctx.lineWidth = unit;
+      [-30, 0, 30].forEach((lat) => {
+        const yc = cy - R * Math.sin(lat * DEG) * ct;
+        const rx = R * Math.cos(lat * DEG);
+        ctx.beginPath();
+        ctx.ellipse(cx, yc, rx, rx * st, 0, 0, Math.PI); // front half only
+        ctx.strokeStyle = c(colors.fg, lat === 0 ? 0.08 : 0.05);
+        ctx.stroke();
+      });
+
+      // Dots
+      for (const pt of POINTS) {
+        const p = view(pt.v);
+        if (p[2] < -0.15) continue;
+        const depth = (p[2] + 1) / 2; // 0 back → 1 front
+        const a = pt.land ? 0.12 + 0.85 * depth * depth : 0.03 + 0.1 * depth;
+        const r = (pt.land ? 1.5 : 0.8) * (0.55 + 0.45 * depth) * unit;
+        ctx.fillStyle = pt.land ? c(colors.primary, a) : c(colors.fg, a);
+        ctx.beginPath();
+        ctx.arc(sx(p), sy(p), r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Rim light
+      const rim = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R);
+      rim.addColorStop(0, c(colors.primary, 0.55));
+      rim.addColorStop(0.5, c(colors.primary, 0.08));
+      rim.addColorStop(1, c(colors.primary, 0.3));
+      ctx.strokeStyle = rim;
+      ctx.lineWidth = 1.2 * unit;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Arcs with travelling pulses
+      const arcIntro = reduced ? 1 : easeOut((t - 900) / 1400);
+      ARCS.forEach((arc, ai) => {
+        const pts = arc.map(view);
+        const drawn = Math.floor(arcIntro * (pts.length - 1));
+        ctx.beginPath();
+        let pen = false;
+        for (let i = 0; i <= drawn; i++) {
+          const p = pts[i];
+          if (hidden(p)) {
+            pen = false;
+            continue;
+          }
+          if (!pen) ctx.moveTo(sx(p), sy(p));
+          else ctx.lineTo(sx(p), sy(p));
+          pen = true;
+        }
+        ctx.strokeStyle = c(colors.primary, 0.45);
+        ctx.lineWidth = 1.1 * unit;
+        ctx.stroke();
+
+        if (reduced || arcIntro < 1) return;
+        const phase = ((t / 3400 + ai * 0.37) % 1) * 1.25; // 0..1 travel, then a short rest
+        if (phase > 1) return;
+        const head = Math.floor(phase * (pts.length - 1));
+        const tail = 14;
+        for (let k = 0; k < tail; k++) {
+          const i = head - k;
+          if (i < 1) break;
+          const p0 = pts[i - 1];
+          const p1 = pts[i];
+          if (hidden(p0) || hidden(p1)) continue;
+          ctx.strokeStyle = c(colors.accent, 0.9 * (1 - k / tail));
+          ctx.lineWidth = 1.8 * unit;
+          ctx.beginPath();
+          ctx.moveTo(sx(p0), sy(p0));
+          ctx.lineTo(sx(p1), sy(p1));
+          ctx.stroke();
+        }
+      });
+
+      // Sites
+      SITES.forEach((s, i) => {
+        const p = view(s);
+        if (p[2] < 0.05) return;
+        const x = sx(p);
+        const y = sy(p);
+        const fade = Math.min(1, p[2] * 4);
+        if (!reduced) {
+          const k = ((t / 2600 + i * 0.29) % 1);
+          ctx.strokeStyle = c(colors.primary, 0.5 * (1 - k) * fade);
+          ctx.lineWidth = unit;
+          ctx.beginPath();
+          ctx.arc(x, y, (3 + 13 * k) * unit, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.fillStyle = c(i === 0 ? colors.accent : colors.fg, 0.95 * fade);
+        ctx.beginPath();
+        ctx.arc(x, y, (i === 0 ? 3.2 : 2.4) * unit, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Orbit — front half and satellite
+      strokeOrbit(true);
+      if (sat[2] >= 0) drawSat();
+      ctx.globalAlpha = 1;
+    };
+
+    let frame = 0;
+    const loop = (now: number) => {
+      if (++frame % 60 === 0) readColors();
+      draw(now);
+      if (visible && !reduced) raf = requestAnimationFrame(loop);
+    };
+
+    readColors();
+    resize();
+    start = performance.now();
+    raf = requestAnimationFrame(loop);
+
+    const ro = new ResizeObserver(() => {
+      resize();
+      if (reduced || !visible) draw(performance.now());
+    });
+    ro.observe(wrap);
+
+    const io = new IntersectionObserver(([entry]) => {
+      const was = visible;
+      visible = entry.isIntersecting;
+      if (visible && !was && !reduced) raf = requestAnimationFrame(loop);
+      if (!visible) cancelAnimationFrame(raf);
+    });
+    io.observe(wrap);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      io.disconnect();
+    };
   }, []);
 
-  const contours = useMemo(
-    () => Array.from({ length: 8 }, (_, k) => contourPath(250, 220, 26 + k * 20, k * 0.6 + 1, 0.74)),
-    [],
-  );
-
-  const nodes = [
-    { x: 92, y: 118 },
-    { x: 178, y: 300 },
-    { x: 250, y: 214 },
-    { x: 352, y: 118 },
-    { x: 382, y: 318 },
-    { x: 120, y: 362 },
-  ];
-  const links: [number, number][] = [
-    [0, 2],
-    [2, 3],
-    [2, 1],
-    [1, 5],
-    [2, 4],
-    [3, 4],
-  ];
-
   return (
-    <svg
-      viewBox="0 0 640 520"
+    <div
+      ref={wrapRef}
       role="img"
-      aria-label="Illustration of a geospatial operations console combining map layers, data pipelines and model monitoring"
-      className="h-auto w-full"
+      aria-label="A turning globe with connected locations, representing AI, data and geospatial systems working together"
+      className="relative mx-auto aspect-square w-full max-w-[560px]"
     >
-      <defs>
-        <clipPath id="hv-map">
-          <rect x="20" y="56" width="400" height="360" rx="6" />
-        </clipPath>
-        <linearGradient id="hv-scan" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="hsl(var(--primary))" stopOpacity="0" />
-          <stop offset="1" stopColor="hsl(var(--primary))" stopOpacity="0.28" />
-        </linearGradient>
-      </defs>
-
-      {/* Frame */}
-      <rect x="0.5" y="0.5" width="639" height="519" rx="12" style={{ fill: tok("card", 0.85), stroke: tok("border") }} />
-      <g style={{ fill: tok("muted-foreground", 0.5) }}>
-        <circle cx="22" cy="26" r="4" />
-        <circle cx="36" cy="26" r="4" />
-        <circle cx="50" cy="26" r="4" />
-      </g>
-      <text x="72" y="30" className="font-mono" fontSize="11" style={{ fill: tok("muted-foreground") }}>
-        c9s · operations console
-      </text>
-      <g className="font-mono" fontSize="10.5">
-        <text x="440" y="30" style={{ fill: tok("foreground") }}>
-          Layers
-        </text>
-        <text x="496" y="30" style={{ fill: tok("muted-foreground") }}>
-          Pipeline
-        </text>
-        <text x="564" y="30" style={{ fill: tok("muted-foreground") }}>
-          Models
-        </text>
-      </g>
-      <line x1="0" x2="640" y1="44" y2="44" style={{ stroke: tok("border") }} />
-
-      {/* Map canvas */}
-      <g clipPath="url(#hv-map)">
-        <rect x="20" y="56" width="400" height="360" style={{ fill: tok("background", 0.9) }} />
-        {/* Raster layer */}
-        {cells.map((c) => (
-          <rect
-            key={`${c.x}-${c.y}`}
-            x={20 + c.x * 40}
-            y={56 + c.y * 40}
-            width="40"
-            height="40"
-            style={{ fill: c.v > 0.6 ? tok("secondary", (c.v - 0.45) * 0.55) : tok("primary", c.v * 0.16) }}
-          />
-        ))}
-        {/* Tile grid */}
-        {Array.from({ length: 11 }, (_, i) => (
-          <line key={`v${i}`} x1={20 + i * 40} x2={20 + i * 40} y1="56" y2="416" style={{ stroke: tok("grid-line") }} />
-        ))}
-        {Array.from({ length: 10 }, (_, i) => (
-          <line key={`h${i}`} x1="20" x2="420" y1={56 + i * 40} y2={56 + i * 40} style={{ stroke: tok("grid-line") }} />
-        ))}
-        {/* Topographic contours */}
-        {contours.map((d, k) => (
-          <path
-            key={k}
-            d={d}
-            fill="none"
-            strokeWidth={k % 4 === 3 ? 1.3 : 0.8}
-            style={{ stroke: tok("foreground", k % 4 === 3 ? 0.32 : 0.14) }}
-          />
-        ))}
-        {/* Vector: roads and parcels */}
-        <path
-          d="M20,270 C110,250 160,190 250,200 S390,150 420,170"
-          fill="none"
-          strokeWidth="2"
-          style={{ stroke: tok("foreground", 0.28) }}
-        />
-        <path d="M140,56 C150,150 200,260 190,416" fill="none" strokeWidth="1.4" style={{ stroke: tok("foreground", 0.2) }} />
-        <polygon
-          points="286,250 344,238 362,286 300,304"
-          strokeWidth="1.4"
-          style={{ fill: tok("accent", 0.12), stroke: tok("accent", 0.85) }}
-        />
-        <polygon
-          points="56,180 106,168 116,214 64,224"
-          strokeWidth="1.2"
-          style={{ fill: tok("primary", 0.1), stroke: tok("primary", 0.7) }}
-        />
-        {/* Network */}
-        {links.map(([a, b]) => (
-          <line
-            key={`${a}-${b}`}
-            x1={nodes[a].x}
-            y1={nodes[a].y}
-            x2={nodes[b].x}
-            y2={nodes[b].y}
-            strokeWidth="1.3"
-            className="flow-line"
-            style={{ stroke: tok("primary", 0.85) }}
-          />
-        ))}
-        {nodes.map((n, i) => (
-          <g key={i}>
-            <circle cx={n.x} cy={n.y} r="10" className="pulse-dot" style={{ fill: tok("primary", 0.18) }} />
-            <circle cx={n.x} cy={n.y} r="3.6" style={{ fill: tok("foreground") }} />
-          </g>
-        ))}
-        {/* Scan line */}
-        <rect x="20" y="40" width="400" height="56" fill="url(#hv-scan)" className="scan" />
-      </g>
-      <rect x="20" y="56" width="400" height="360" rx="6" fill="none" style={{ stroke: tok("border") }} />
-      <g className="font-mono" fontSize="10">
-        <rect x="30" y="384" width="168" height="22" rx="4" style={{ fill: tok("background", 0.85) }} />
-        <text x="40" y="399" style={{ fill: tok("muted-foreground") }}>
-          18.5590° N · 73.7868° E
-        </text>
-        <rect x="296" y="66" width="114" height="22" rx="4" style={{ fill: tok("background", 0.85) }} />
-        <text x="306" y="81" style={{ fill: tok("accent") }}>
-          parcel · selected
-        </text>
-      </g>
-
-      {/* Right column: layers */}
-      <g className="font-mono" fontSize="10.5">
-        <rect x="436" y="56" width="184" height="124" rx="6" style={{ fill: tok("background", 0.6), stroke: tok("border") }} />
-        <text x="450" y="78" style={{ fill: tok("muted-foreground") }}>
-          LAYERS
-        </text>
-        {[
-          ["Satellite · COG", "primary"],
-          ["Parcels · vector", "accent"],
-          ["Outlets · points", "foreground"],
-          ["Risk index", "secondary"],
-        ].map(([label, color], i) => (
-          <g key={label} transform={`translate(450 ${96 + i * 20})`}>
-            <rect width="9" height="9" rx="2" y="-8" style={{ fill: tok(color, 0.85) }} />
-            <text x="18" style={{ fill: tok("foreground", 0.9) }}>
-              {label}
-            </text>
-          </g>
-        ))}
-
-        {/* Pipeline */}
-        <rect x="436" y="192" width="184" height="118" rx="6" style={{ fill: tok("background", 0.6), stroke: tok("border") }} />
-        <text x="450" y="214" style={{ fill: tok("muted-foreground") }}>
-          PIPELINE
-        </text>
-        {["ingest", "validate", "enrich", "serve"].map((s, i) => (
-          <g key={s} transform={`translate(450 ${234 + i * 19})`}>
-            <circle
-              cx="4"
-              cy="-3.5"
-              r="3.5"
-              className={i === 2 ? "pulse-dot" : undefined}
-              style={{ fill: i === 2 ? tok("accent") : tok("success") }}
-            />
-            <text x="16" style={{ fill: tok("foreground", 0.9) }}>
-              {s}
-            </text>
-            <line x1="90" x2="160" y1="-3.5" y2="-3.5" strokeWidth="3" strokeLinecap="round" style={{ stroke: tok("border") }} />
-            <line
-              x1="90"
-              x2={i < 2 ? 160 : i === 2 ? 128 : 90}
-              y1="-3.5"
-              y2="-3.5"
-              strokeWidth="3"
-              strokeLinecap="round"
-              style={{ stroke: i === 2 ? tok("accent") : tok("success", 0.85) }}
-            />
-          </g>
-        ))}
-
-        {/* Model monitor */}
-        <rect x="436" y="322" width="184" height="94" rx="6" style={{ fill: tok("background", 0.6), stroke: tok("border") }} />
-        <text x="450" y="344" style={{ fill: tok("muted-foreground") }}>
-          MODEL · EVAL
-        </text>
-        <polyline
-          points="450,398 470,390 490,393 510,380 530,384 550,372 570,375 590,366 606,368"
-          fill="none"
-          strokeWidth="1.6"
-          style={{ stroke: tok("primary") }}
-        />
-        <line x1="450" x2="606" y1="404" y2="404" style={{ stroke: tok("border") }} />
-      </g>
-
-      {/* Log strip */}
-      <g className="font-mono" fontSize="10">
-        <line x1="0" x2="640" y1="432" y2="432" style={{ stroke: tok("border") }} />
-        <text x="22" y="456" style={{ fill: tok("muted-foreground") }}>
-          <tspan style={{ fill: tok("success") }}>●</tspan> tiles/raster/12 served from COG
-        </text>
-        <text x="22" y="476" style={{ fill: tok("muted-foreground") }}>
-          <tspan style={{ fill: tok("success") }}>●</tspan> pipeline.outlets: quality checks passed
-        </text>
-        <text x="22" y="496" style={{ fill: tok("muted-foreground") }}>
-          <tspan style={{ fill: tok("accent") }}>●</tspan> retrieval index refreshing · spatial join on territories
-        </text>
-      </g>
-    </svg>
+      <canvas ref={canvasRef} aria-hidden className="absolute inset-0" />
+      <Chip className="left-[2%] top-[16%]" delay="1.2s" dot="bg-primary">
+        AI models
+      </Chip>
+      <Chip className="right-0 top-[44%]" delay="1.45s" dot="bg-accent">
+        Data platforms
+      </Chip>
+      <Chip className="bottom-[13%] left-[8%]" delay="1.7s" dot="bg-success">
+        Geospatial intelligence
+      </Chip>
+    </div>
   );
 };
+
+const Chip = ({
+  className,
+  delay,
+  dot,
+  children,
+}: {
+  className: string;
+  delay: string;
+  dot: string;
+  children: React.ReactNode;
+}) => (
+  <div aria-hidden className={`hero-chip absolute hidden sm:block ${className}`} style={{ animationDelay: delay }}>
+    <div style={{ animationDelay: `-${delay}` }} className="float-slow flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3.5 py-1.5 text-xs font-medium text-foreground/90 shadow-lg shadow-black/10 backdrop-blur-md">
+      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+      {children}
+    </div>
+  </div>
+);
