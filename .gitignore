@@ -1,0 +1,4 @@
+# Windows "downloaded file" metadata created when copying files into WSL.
+# The ":" in these names breaks checkout on Windows.
+*:Zone.Identifier
+*Zone.Identifier
