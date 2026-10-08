@@ -1,2 +1,16 @@
-/*    /index.html   200
+# Legacy static-site URLs
+/index.html                                   /                       301
+/about.html                                   /about                  301
+/services.html                                /                       301
+/contact.html                                 /contact                301
+/project.html                                 /work                   301
+/project-details.html                         /work                   301
+/our-products.html                            /work                   301
+/HRMS.html                                    /work                   301
+/geo-spatial-microplanning-project-details.html /work#microplanning   301
+/real_estate.html                             /work#terrain-analytics 301
+/privacy-notice.html                          /privacy                301
+/terms-of-use.html                            /terms                  301
 
+# SPA fallback (per-route HTML files written at build time are served first)
+/*    /index.html   200

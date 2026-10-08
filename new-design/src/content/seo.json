@@ -1,0 +1,63 @@
+{
+  "siteUrl": "https://cloud9space.com",
+  "siteName": "Cloud9Space",
+  "ogImage": "/og-image.png",
+  "routes": {
+    "/": {
+      "title": "Cloud9Space | AI, Data & Geospatial Engineering",
+      "description": "Cloud9Space designs and builds AI applications, data platforms and geospatial systems for enterprises, consulting firms and growing technology companies. Based in Pune, India."
+    },
+    "/ai": {
+      "title": "AI & Intelligent Systems | Cloud9Space",
+      "description": "Production AI engineering: LLM and RAG applications, AI agents, computer vision, predictive models, evaluation and MLOps — built on sound data foundations."
+    },
+    "/data-engineering": {
+      "title": "Data Engineering & Analytics | Cloud9Space",
+      "description": "Data platforms, ETL/ELT pipelines, lakehouses, warehouses, data quality and AI-ready data architecture, engineered for reliability and cost control."
+    },
+    "/geospatial": {
+      "title": "Geospatial Intelligence & GIS Engineering | Cloud9Space",
+      "description": "GIS platforms, satellite and remote-sensing pipelines, raster and vector analytics, GeoAI, spatial APIs and large-scale map rendering."
+    },
+    "/software-engineering": {
+      "title": "Software & Platform Engineering | Cloud9Space",
+      "description": "Web applications, enterprise platforms, APIs, microservices, modernisation, QA automation and DevOps — engineered for production."
+    },
+    "/cloud": {
+      "title": "Cloud Engineering on AWS, Azure & GCP | Cloud9Space",
+      "description": "Cloud-native architecture, serverless, infrastructure as code, CI/CD and observability across AWS, Azure and Google Cloud."
+    },
+    "/industries": {
+      "title": "Industries | Cloud9Space",
+      "description": "Where Cloud9Space has delivered: agriculture and agritech, consumer goods and retail, financial risk, real estate, public health programmes, and technology and consulting firms."
+    },
+    "/work": {
+      "title": "Client Success | Cloud9Space",
+      "description": "Selected engagements: field intelligence, route-to-market analytics, GIS microplanning, terrain analytics and agri-risk platforms — challenge, solution and architecture."
+    },
+    "/insights": {
+      "title": "Insights | Cloud9Space",
+      "description": "Engineering notes from Cloud9Space on AI, data, geospatial systems, software engineering and cloud."
+    },
+    "/about": {
+      "title": "About Cloud9Space | AI, Data & Geospatial Engineering Company",
+      "description": "Cloud9Space Innovations Private Limited is a Pune-based engineering company, founded in 2023, combining AI, data engineering, geospatial intelligence and software engineering."
+    },
+    "/careers": {
+      "title": "Careers | Cloud9Space",
+      "description": "Build production AI, data, GIS and cloud systems with a small, senior-leaning engineering team in Pune."
+    },
+    "/contact": {
+      "title": "Contact | Cloud9Space",
+      "description": "Talk to Cloud9Space about an AI, data, geospatial or software engineering problem. Office in Baner, Pune."
+    },
+    "/privacy": {
+      "title": "Privacy Policy | Cloud9Space",
+      "description": "How Cloud9Space collects, uses and protects personal information."
+    },
+    "/terms": {
+      "title": "Terms of Use | Cloud9Space",
+      "description": "Terms governing the use of the Cloud9Space website."
+    }
+  }
+}

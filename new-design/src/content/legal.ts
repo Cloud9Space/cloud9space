@@ -1,0 +1,139 @@
+/** Legal copy carried over verbatim from the previous cloud9space.com pages. */
+
+export type LegalDoc = { updated?: string; sections: { heading: string; body: (string | string[])[] }[] };
+
+export const privacy: LegalDoc = {
+  sections: [
+    {
+      heading: "Introduction",
+      body: [
+        "Cloud9Space values your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how Cloud9Space collects, uses, stores, and protects information obtained through this website or during business interactions.",
+      ],
+    },
+    {
+      heading: "Information We Collect",
+      body: [
+        "We may collect personal information such as name, email address, phone number, company name, and other details voluntarily provided through contact forms, inquiries, or business communications.",
+        "We may also collect non-personal information such as browser type, IP address, device information, pages visited, and usage patterns for analytical and security purposes.",
+      ],
+    },
+    {
+      heading: "Use of Information",
+      body: [
+        "Information collected by Cloud9Space may be used to respond to inquiries, provide services, improve our website, communicate updates, ensure security, and comply with legal obligations.",
+      ],
+    },
+    {
+      heading: "Cookies and Tracking Technologies",
+      body: [
+        "This website may use cookies or similar technologies to enhance user experience, analyze traffic, and improve functionality. You may choose to disable cookies through your browser settings; however, certain features of the website may not function properly.",
+      ],
+    },
+    {
+      heading: "Sharing of Information",
+      body: [
+        "Cloud9Space does not sell, rent, or trade personal information. Information may be shared with trusted service providers, partners, or affiliates solely for business operations, subject to confidentiality obligations.",
+        "Information may also be disclosed where required by law, regulation, or legal process.",
+      ],
+    },
+    {
+      heading: "Data Security",
+      body: [
+        "Cloud9Space implements appropriate technical and organizational measures to safeguard personal information against unauthorized access, loss, misuse, or alteration. However, no method of transmission over the internet is completely secure.",
+      ],
+    },
+    {
+      heading: "Data Retention",
+      body: [
+        "Personal information is retained only for as long as necessary to fulfill the purposes for which it was collected or as required by applicable laws.",
+      ],
+    },
+    {
+      heading: "Third-Party Websites",
+      body: [
+        "This website may contain links to third-party websites. Cloud9Space is not responsible for the privacy practices or content of such external websites.",
+      ],
+    },
+    {
+      heading: "User Rights",
+      body: [
+        "Depending on applicable laws, you may have the right to access, correct, update, or request deletion of your personal information. Requests may be submitted using the contact details provided below.",
+      ],
+    },
+    {
+      heading: "Changes to This Privacy Policy",
+      body: [
+        "Cloud9Space reserves the right to update this Privacy Policy at any time. Changes will be effective upon posting on this page.",
+      ],
+    },
+    {
+      heading: "Contact Information",
+      body: [
+        "For questions or concerns regarding this Privacy Policy or data practices, please contact: contact@cloud9space.com",
+      ],
+    },
+  ],
+};
+
+export const terms: LegalDoc = {
+  sections: [
+    {
+      heading: "Terms of Use",
+      body: [
+        "By accessing this website (“Website”), you acknowledge that you have read, understood, and accepted these Terms of Use governing your use of this Website. If you do not agree to these terms and conditions, you are requested not to access the Website or download any materials from it.",
+        "Your continued use of or access to the Website, or downloading any materials available on the Website, will be deemed as your acceptance of these Terms of Use. Cloud9Space reserves the right to modify, change, or alter the contents of this Website, including these Terms of Use, at any time without prior notice.",
+        "Cloud9Space does not represent that the contents or materials available on this Website are appropriate or available for use in all locations. Accessing the Website from territories where its contents are illegal is prohibited. You are responsible for compliance with all applicable local laws.",
+      ],
+    },
+    {
+      heading: "Right to Use",
+      body: [
+        "Cloud9Space grants you a non-exclusive, non-transferable, and limited right to access, use, and display this Website and the materials available on it solely for personal and informational purposes.",
+        "Permission to use documents such as white papers, press releases, and other publications available for download from this Website is granted, provided that:",
+        [
+          "Cloud9Space’s copyright notice appears on all copies of the documents.",
+          "Use of such documents is for informational and non-commercial purposes only and will not be copied, posted on any network computer, or broadcast in any media.",
+          "No modifications are made to the documents.",
+        ],
+        "Any unauthorized use is strictly prohibited and may result in civil and criminal penalties under applicable laws.",
+        "The permissions stated above do not include the design or layout of this Website. Elements of the Website are protected by trade dress and other laws and may not be copied or imitated in whole or in part. No logo, graphic, sound, or image from this Website may be copied or retransmitted without express written permission from Cloud9Space.",
+      ],
+    },
+    {
+      heading: "Intellectual Property Rights",
+      body: [
+        "This Website, including its design, layout, source code, and content, is the exclusive property of Cloud9Space and is protected by copyright laws. No express or implied rights are granted.",
+      ],
+    },
+    {
+      heading: "Third-Party Content",
+      body: [
+        "This Website may include links to third-party websites. Cloud9Space does not control or endorse such websites and is not responsible for their content, security, or privacy practices.",
+      ],
+    },
+    {
+      heading: "No Warranties",
+      body: [
+        "All information and materials available on this Website are provided on an “as is” basis without warranties of any kind. Cloud9Space disclaims all warranties to the fullest extent permitted by law.",
+      ],
+    },
+    {
+      heading: "Indemnity and Limitation of Liability",
+      body: [
+        "You agree to indemnify and hold harmless Cloud9Space from any claims or damages arising from your use of this Website. Cloud9Space shall not be liable for any indirect, incidental, or consequential damages.",
+      ],
+    },
+    {
+      heading: "Data Privacy",
+      body: [
+        "Cloud9Space processes personal information in accordance with its Privacy Policy, which explains how data is collected, used, and protected.",
+      ],
+    },
+    {
+      heading: "Governing Law and Jurisdiction",
+      body: [
+        "These Terms of Use are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.",
+      ],
+    },
+  ],
+};
