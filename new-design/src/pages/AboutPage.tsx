@@ -9,6 +9,7 @@ import { ConvergenceDiagram } from "@/components/visuals/ConvergenceDiagram";
 import { Credentials, LeaderCards } from "@/components/sections/CompanyLeadership";
 import { Approach } from "@/components/sections/Approach";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { TeamSection } from "@/components/sections/Team";
 
 const facts = [
   ["Legal name", company.legalName],
@@ -27,7 +28,7 @@ const AboutPage = () => (
       lead="Founded in Pune in 2023, Cloud9Space builds the systems that sit between raw operational data and real decisions."
     />
 
-    <Section tone="light" labelledBy="story-title">
+    <Section labelledBy="story-title">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
           <p className="eyebrow mb-4">Our story</p>
@@ -58,9 +59,9 @@ const AboutPage = () => (
       </div>
     </Section>
 
-    <Section tone="deep" labelledBy="what-title" className="overflow-hidden">
+    <Section labelledBy="what-title" className="overflow-hidden">
       <div className="grid items-center gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-6">
+        <div className="lg:order-2 lg:col-span-6">
           <SectionHeader
             id="what-title"
             eyebrow="What makes us different"
@@ -71,13 +72,13 @@ const AboutPage = () => (
             How they connect <ArrowRight size={14} aria-hidden />
           </Link>
         </div>
-        <Reveal className="lg:col-span-6">
+        <Reveal className="tone-ink ink-panel p-6 sm:p-10 lg:order-1 lg:col-span-6">
           <ConvergenceDiagram />
         </Reveal>
       </div>
     </Section>
 
-    <Section tone="surface" labelledBy="leaders-title">
+    <Section labelledBy="leaders-title">
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <SectionHeader id="leaders-title" eyebrow="Leadership" title="Who leads the work." />
@@ -88,7 +89,7 @@ const AboutPage = () => (
       </div>
     </Section>
 
-    <Section tone="light" labelledBy="facts-title" className="!py-16">
+    <Section labelledBy="facts-title">
       <h2 id="facts-title" className="t-meta uppercase tracking-[0.14em]">
         Company details
       </h2>
@@ -105,6 +106,7 @@ const AboutPage = () => (
       </div>
     </Section>
 
+    <TeamSection />
     <Approach />
     <FinalCTA />
   </>

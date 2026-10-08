@@ -17,8 +17,8 @@ const NotFound = () => {
   }, []);
 
   return (
-    <section className="tone-deep relative flex min-h-[80vh] items-center bg-background pt-[72px]">
-      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-70" />
+    <section className="tone-ink relative flex min-h-[80vh] items-center bg-background pt-[72px]">
+      <div aria-hidden className="absolute inset-0 bg-grid" />
       <div className="container relative py-20">
         <p className="eyebrow mb-4">404 · No tile at these coordinates</p>
         <h1 className="t-h1">This page could not be found.</h1>

@@ -9,6 +9,7 @@
 import eyLogo from "@/assets/clients/ey.png";
 import kentrixLogo from "@/assets/clients/kentrix.png";
 import terraHelixLogo from "@/assets/clients/terra-helix.png";
+import softwareEngineerPhoto from "@/assets/team/software-engineer.webp";
 
 /* ------------------------------------------------------------------ */
 /* Company                                                             */
@@ -534,22 +535,6 @@ export const caseStudies: CaseStudy[] = [
 
 export const caseById = Object.fromEntries(caseStudies.map((c) => [c.id, c])) as Record<string, CaseStudy>;
 
-/** Long-running relationships that are not written up as case studies. */
-export const engagements = [
-  {
-    name: "Kentrix.ai",
-    body: "Repeat partner for geospatial software development on location-intelligence products.",
-  },
-  {
-    name: "Terra Helix",
-    body: "Dedicated engineering team working as an extension of the client's own product organisation.",
-  },
-  {
-    name: "MapMyCrop",
-    body: "AI and geospatial engineering for an agritech platform.",
-  },
-];
-
 /* ------------------------------------------------------------------ */
 /* Clients (logo strip)                                                */
 /* ------------------------------------------------------------------ */
@@ -694,20 +679,6 @@ export const engagementModels = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Technology ecosystem                                                */
-/* ------------------------------------------------------------------ */
-
-// TODO(content): prune anything the team does not actively use.
-export const techLayers = [
-  { layer: "Experience", items: ["React", "Next.js", "TypeScript", "React Native"] },
-  { layer: "Services", items: ["Python", "FastAPI", "Django", "Node.js", "Java"] },
-  { layer: "AI / ML", items: ["PyTorch", "TensorFlow", "LangChain", "LangGraph", "LLMs"] },
-  { layer: "Data", items: ["PostgreSQL", "Snowflake", "dbt", "Apache Iceberg", "DuckDB"] },
-  { layer: "Geospatial", items: ["PostGIS", "GeoServer", "GDAL", "Rasterio", "TiTiler", "GeoParquet", "Mapbox", "deck.gl"] },
-  { layer: "Cloud & DevOps", items: ["AWS", "Azure", "Google Cloud", "Docker", "GitHub Actions"] },
-];
-
-/* ------------------------------------------------------------------ */
 /* Insights                                                            */
 /* ------------------------------------------------------------------ */
 
@@ -720,10 +691,68 @@ export type Insight = {
   href: string;
   date: string; // ISO
   readMinutes?: number;
+  /** Sample post awaiting a real article; shown with a "Draft" badge and not linked. */
+  draft?: boolean;
 };
 
-// TODO(content): add published articles only. The section shows an honest empty state until then.
-export const insights: Insight[] = [];
+// TODO(content): these are sample drafts so the blog layout can be reviewed. Replace each with a
+// published article (set href, remove `draft`) or delete it before launch.
+export const insights: Insight[] = [
+  {
+    title: "Text-to-SQL over a governed metric layer: what actually worked",
+    category: "AI",
+    summary: "Why we pointed the model at metric definitions instead of raw tables, and how we evaluate answers before anyone sees them.",
+    href: "",
+    date: "2026-09-18",
+    readMinutes: 8,
+    draft: true,
+  },
+  {
+    title: "Cloud-native geospatial: COGs, GeoParquet and dynamic tiling in production",
+    category: "Geospatial",
+    summary: "Moving large raster and vector workloads off file shares and onto formats that stream, tile and query at scale.",
+    href: "",
+    date: "2026-09-04",
+    readMinutes: 10,
+    draft: true,
+  },
+  {
+    title: "A route-to-market data model sales teams will trust",
+    category: "Data",
+    summary: "Outlets, beats, distributors and channels: modelling general trade data so every dashboard agrees on the numbers.",
+    href: "",
+    date: "2026-08-21",
+    readMinutes: 7,
+    draft: true,
+  },
+  {
+    title: "Evaluating retrieval-augmented assistants before they reach users",
+    category: "AI",
+    summary: "Building an evaluation set with the business, choosing an acceptance bar, and running it in CI on every prompt change.",
+    href: "",
+    date: "2026-08-07",
+    readMinutes: 9,
+    draft: true,
+  },
+  {
+    title: "Offline-first field apps for low-connectivity programmes",
+    category: "Engineering",
+    summary: "Sync, conflict handling and map tiles on the device, for field teams who spend most of the day without a signal.",
+    href: "",
+    date: "2026-07-24",
+    readMinutes: 6,
+    draft: true,
+  },
+  {
+    title: "Keeping cloud costs predictable for geospatial workloads",
+    category: "Cloud",
+    summary: "Where imagery pipelines quietly spend money, and the budgets, alerts and storage tiers we set up from day one.",
+    href: "",
+    date: "2026-07-10",
+    readMinutes: 6,
+    draft: true,
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* Credentials                                                         */
@@ -748,6 +777,32 @@ export const leadership = [
     bio: "Shubham founded Cloud9Space in 2023 and leads the company's technology direction and client engagements. His focus is the intersection of geospatial engineering, data platforms and applied AI — and making sure what the team builds holds up in production.",
     linkedin: "",
   },
+];
+
+/* ------------------------------------------------------------------ */
+/* Team                                                                */
+/* ------------------------------------------------------------------ */
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  initials?: string;
+  /** Imported image URL. Cards without one show initials, or a silhouette for placeholders. */
+  photo?: string;
+  placeholder?: boolean;
+};
+
+// TODO(content): every `placeholder` card must be replaced with a real name, role and photo
+// (portrait, roughly 3:4) before launch. Shubham sits in the middle, where the row is highest.
+export const team: TeamMember[] = [
+  { name: "Team member", role: "AI / ML Engineering", placeholder: true },
+  { name: "Team member", role: "Data Engineering", placeholder: true },
+  { name: "Team member", role: "GIS Engineering", placeholder: true },
+  { name: "Shubham Shewdikar", role: "Founder & CEO", initials: "SS" },
+  // TODO(content): add this engineer's name.
+  { name: "Team member", role: "Software Engineering", photo: softwareEngineerPhoto },
+  { name: "Team member", role: "Cloud & DevOps", placeholder: true },
+  { name: "Team member", role: "Quality Engineering", placeholder: true },
 ];
 
 /* ------------------------------------------------------------------ */

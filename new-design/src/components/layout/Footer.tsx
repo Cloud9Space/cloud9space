@@ -6,11 +6,11 @@ import { Brand } from "./Header";
 export const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="tone-deep bg-background text-foreground border-t border-border" aria-labelledby="footer-heading">
+    <footer className="relative border-t border-border bg-[hsl(var(--footer))] text-foreground" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="container py-16 lg:py-20">
+      <div className="container relative py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Brand />
@@ -38,7 +38,7 @@ export const Footer = () => {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
             {Object.entries(footerNav).map(([title, links]) => (
               <div key={title}>
-                <h3 className="eyebrow !text-muted-foreground mb-4">{title}</h3>
+                <h3 className="t-meta mb-4 uppercase tracking-[0.14em]">{title}</h3>
                 <ul className="space-y-2.5">
                   {links.map((l) => (
                     <li key={l.href}>

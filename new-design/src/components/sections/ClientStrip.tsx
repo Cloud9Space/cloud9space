@@ -1,7 +1,7 @@
 import { clientLogos, clientNames } from "@/content/site";
 
 export const ClientStrip = () => (
-  <section className="tone-surface bg-background border-y border-border" aria-labelledby="clients-title">
+  <section className="bg-background border-y border-border" aria-labelledby="clients-title">
     <div className="container flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:gap-16">
       <h2 id="clients-title" className="t-meta max-w-[15rem] shrink-0 uppercase tracking-[0.14em] leading-relaxed">
         Trusted by teams across enterprise, consulting and technology

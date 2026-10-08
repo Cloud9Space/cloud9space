@@ -1,5 +1,5 @@
 import { company } from "@/content/site";
-import { Section } from "@/components/kit/Section";
+import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 
 const facts = [
@@ -9,15 +9,21 @@ const facts = [
 ];
 
 export const WhoWeAre = () => (
-  <Section tone="light" labelledBy="who-title">
-    <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-      <Reveal className="lg:col-span-6">
-        <p className="eyebrow mb-4">Who we are</p>
-        <h2 id="who-title" className="t-h2">
-          Technology expertise. Engineering execution. Business outcomes.
-        </h2>
+  <Section labelledBy="who-title">
+    <SectionHeader id="who-title" eyebrow="Who we are" title="Technology expertise. Engineering execution. Business outcomes." />
+    <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
+      <Reveal className="tone-blue ink-panel p-8 sm:p-10 lg:col-span-5">
+        <div aria-hidden className="absolute inset-0 bg-grid" />
+        <dl className="relative grid gap-8">
+          {facts.map((f) => (
+            <div key={f.term} className="border-t border-border pt-4 first:border-0 first:pt-0">
+              <dt className="t-meta uppercase tracking-[0.12em]">{f.term}</dt>
+              <dd className="mt-2 font-heading text-lg font-semibold leading-snug text-foreground">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
       </Reveal>
-      <Reveal className="lg:col-span-6" delay={100}>
+      <Reveal className="lg:col-span-7 lg:self-center" delay={100}>
         <p className="t-lead text-foreground">
           We design and build data platforms, AI applications and geospatial systems that turn complex operational
           data into usable intelligence.
@@ -28,14 +34,6 @@ export const WhoWeAre = () => (
           application people can use — built to work together. Cloud9Space brings those disciplines into one
           engineering team, so the system is designed as a whole rather than stitched together across vendors.
         </p>
-        <dl className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-3">
-          {facts.map((f) => (
-            <div key={f.term}>
-              <dt className="t-meta uppercase tracking-[0.12em]">{f.term}</dt>
-              <dd className="mt-2 font-heading font-semibold leading-snug text-foreground">{f.value}</dd>
-            </div>
-          ))}
-        </dl>
       </Reveal>
     </div>
   </Section>

@@ -8,31 +8,32 @@ type RevealProps = {
   className?: string;
 };
 
-/** Fades content in once it enters the viewport. CSS-only animation; no layout shift. */
+type State = "below" | "in" | "above";
+
+/**
+ * Eases content in as it enters the viewport and back out as it leaves, in the direction of travel:
+ * it rises into place when scrolling down and settles down into place when scrolling back up.
+ * CSS-only animation; no layout shift.
+ */
 export const Reveal = ({ children, as = "div", delay = 0, className }: RevealProps) => {
   const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [state, setState] = useState<State>("below");
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
+      setState("in");
       return;
     }
     const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px" },
+      ([entry]) => setState(entry.isIntersecting ? "in" : entry.boundingClientRect.top > 0 ? "below" : "above"),
+      { rootMargin: "0px 0px -6% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  const style: CSSProperties | undefined = delay ? { transitionDelay: `${delay}ms` } : undefined;
-  return createElement(as, { ref, style, className: cn("reveal", visible && "is-visible", className) }, children);
+  const style: CSSProperties | undefined = delay && state === "in" ? { transitionDelay: `${delay}ms` } : undefined;
+  return createElement(as, { ref, style, "data-reveal": state, className: cn("reveal", className) }, children);
 };

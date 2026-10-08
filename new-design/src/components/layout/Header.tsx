@@ -3,12 +3,14 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { capabilities, industries } from "@/content/site";
+import { getLenis } from "@/lib/smoothScroll";
 import logo from "@/assets/logo-mark.png";
 
 type MenuKey = "capabilities" | "industries";
 
 const simpleLinks = [
   { label: "Client Success", to: "/work" },
+  { label: "Team", to: "/#team" },
   { label: "Insights", to: "/insights" },
   { label: "About", to: "/about" },
   { label: "Careers", to: "/careers" },
@@ -59,8 +61,11 @@ export const Header = () => {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) getLenis()?.stop();
+    else getLenis()?.start();
     return () => {
       document.body.style.overflow = "";
+      getLenis()?.start();
     };
   }, [mobileOpen]);
 
@@ -79,10 +84,9 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "tone-deep fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300",
-        scrolled || open || mobileOpen
-          ? "bg-background/95 backdrop-blur-md border-b border-border"
-          : "bg-background/40 backdrop-blur-sm border-b border-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300",
+        "bg-background/90 backdrop-blur-xl border-b",
+        scrolled || open || mobileOpen ? "border-border" : "border-transparent",
       )}
       onMouseLeave={scheduleClose}
     >
@@ -115,7 +119,8 @@ export const Header = () => {
               key={l.to}
               to={l.to}
               onMouseEnter={scheduleClose}
-              className={({ isActive }) => cn(navItem, isActive && "text-foreground")}
+              // In-page anchors such as "/#team" would otherwise match the home page and always look active.
+              className={({ isActive }) => cn(navItem, isActive && !l.to.includes("#") && "text-foreground")}
             >
               {l.label}
             </NavLink>
@@ -222,6 +227,7 @@ export const Header = () => {
       <div
         id={`${panelId}-mobile`}
         hidden={!mobileOpen}
+        data-lenis-prevent
         className="lg:hidden h-[calc(100dvh-72px)] overflow-y-auto border-t border-border bg-background"
       >
         <nav aria-label="Mobile" className="container py-6 flex flex-col">

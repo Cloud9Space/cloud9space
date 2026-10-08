@@ -16,7 +16,7 @@ const IndustriesPage = () => (
       title="Sectors where location, data and AI decide outcomes."
       lead="We focus on industries where Cloud9Space has delivered working systems. Each one below links to the engagement behind it."
     />
-    <Section tone="light" labelledBy="ind-list" className="!pt-6 sm:!pt-8">
+    <Section labelledBy="ind-list">
       <h2 id="ind-list" className="sr-only">
         Industries we serve
       </h2>

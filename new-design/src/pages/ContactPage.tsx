@@ -27,7 +27,7 @@ const ContactPage = () => (
       title="Have a complex technology problem?"
       lead="Tell us what you are trying to build. A short description is enough — we will follow up to understand the details."
     />
-    <Section tone="light" labelledBy="form-title">
+    <Section labelledBy="form-title">
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <h2 id="form-title" className="t-h3 mb-6">

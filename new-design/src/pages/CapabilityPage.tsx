@@ -86,7 +86,12 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
   return (
     <>
       <Seo path={path} jsonLd={jsonLd} />
-      <PageHero eyebrow={`${cap.num} — ${cap.name}`} title={cap.headline} lead={cap.summary} crumb={cap.name}>
+      <PageHero
+        eyebrow={`${cap.num} — ${cap.name}`}
+        title={cap.headline}
+        lead={cap.summary}
+        crumb={cap.name}
+      >
         <ul className="mt-10 flex flex-wrap gap-2" aria-label="Focus areas">
           {cap.items.map((i) => (
             <li key={i} className="chip text-foreground">
@@ -96,7 +101,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
         </ul>
       </PageHero>
 
-      <Section tone="light" labelledBy="offer-title">
+      <Section labelledBy="offer-title">
         <SectionHeader id="offer-title" eyebrow="What we build" title={`${cap.name}, in practice.`} />
         <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
           {cap.offerings.map((o, i) => (
@@ -108,12 +113,12 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
         </ul>
       </Section>
 
-      <Section tone="dark" labelledBy="ref-title">
+      <Section labelledBy="ref-title">
         <SectionHeader id="ref-title" eyebrow="Architecture" title={reference[slug].title} />
         <Reveal className="mt-12">{reference[slug].visual}</Reveal>
       </Section>
 
-      <Section tone="surface" labelledBy="principles-title">
+      <Section labelledBy="principles-title">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeader id="principles-title" eyebrow="How we work" title="Engineering principles." />
@@ -132,7 +137,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
       </Section>
 
       {related.length > 0 && (
-        <Section tone="light" labelledBy="related-title">
+        <Section labelledBy="related-title">
           <SectionHeader id="related-title" eyebrow="Related work" title="Where we have applied this." />
           <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {related.map((c) => (
@@ -151,7 +156,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
         </Section>
       )}
 
-      <Section tone="dark" labelledBy="other-title" className="!py-16">
+      <Section labelledBy="other-title">
         <h2 id="other-title" className="t-meta uppercase tracking-[0.14em]">
           Other capabilities
         </h2>

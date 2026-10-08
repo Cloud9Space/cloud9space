@@ -18,7 +18,7 @@ export const ConvergenceDiagram = () => (
   >
     {/* Orbit */}
     <circle cx="260" cy="260" r="236" fill="none" strokeWidth="1" className="flow-line-slow" style={{ stroke: tok("foreground", 0.18) }} />
-    <circle cx="260" cy="260" r="200" fill="none" style={{ stroke: tok("grid-line") }} />
+    <circle cx="260" cy="260" r="200" fill="none" style={{ stroke: tok("border", 0.7) }} />
 
     {pillars.map((p) => (
       <circle

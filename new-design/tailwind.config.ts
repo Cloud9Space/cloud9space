@@ -7,10 +7,10 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: { DEFAULT: "1.25rem", sm: "1.5rem", lg: "2rem" },
-      screens: {
-        "2xl": "1320px",
-      },
+      // Fluid side margin (--gutter in index.css). Breakpoint-keyed padding would not apply here,
+      // because `screens: {}` (no max-width, so the layout spans the whole screen) also disables it.
+      padding: "var(--gutter)",
+      screens: {},
     },
     extend: {
       fontFamily: {

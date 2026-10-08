@@ -33,15 +33,15 @@ const topics = [
 ];
 
 export const AIDepth = () => (
-  <Section tone="light" labelledBy="ai-title">
+  <Section labelledBy="ai-title">
     <SectionHeader
-      id="ai-title"
-      eyebrow="AI engineering"
-      title="From AI experiments to production systems."
-      lead="Calling a model API is the easy part. Useful AI depends on the data underneath it, the architecture around it, an honest way to measure it, and the engineering to run it every day."
-    />
+        id="ai-title"
+        eyebrow="AI engineering"
+        title="From AI experiments to production systems."
+        lead="Calling a model API is the easy part. Useful AI depends on the data underneath it, the architecture around it, an honest way to measure it, and the engineering to run it every day."
+      />
 
-    <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+    <div className="tone-blue mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
       {stalls.map((s, i) => (
         <Reveal key={s.problem} delay={i * 80} className="bg-card p-6 sm:p-7">
           <p className="t-meta uppercase tracking-[0.12em] text-destructive/90">Why AI stalls</p>
@@ -52,8 +52,11 @@ export const AIDepth = () => (
       ))}
     </div>
 
-    <Reveal className="mt-14">
-      <AIPipeline />
+    <Reveal className="tone-blue ink-panel mt-6 p-6 sm:p-8">
+      <div aria-hidden className="absolute inset-0 bg-grid" />
+      <div className="relative">
+        <AIPipeline />
+      </div>
     </Reveal>
 
     <div className="mt-14 flex flex-col gap-8 border-t border-border pt-10 lg:flex-row lg:items-start lg:justify-between">

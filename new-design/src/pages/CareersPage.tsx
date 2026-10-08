@@ -21,7 +21,7 @@ const CareersPage = () => (
       </div>
     </PageHero>
 
-    <Section tone="light" labelledBy="why-title">
+    <Section labelledBy="why-title">
       <SectionHeader id="why-title" eyebrow="Working here" title="What the work is like." />
       <ol className="mt-12 grid gap-8 md:grid-cols-3">
         {careerPrinciples.map((p, i) => (
@@ -34,7 +34,7 @@ const CareersPage = () => (
       </ol>
     </Section>
 
-    <Section tone="dark" labelledBy="tracks-title">
+    <Section labelledBy="tracks-title">
       <SectionHeader
         id="tracks-title"
         eyebrow="Teams"
@@ -51,7 +51,7 @@ const CareersPage = () => (
       </ul>
     </Section>
 
-    <Section id="open-positions" tone="light" labelledBy="open-title" className="scroll-mt-16">
+    <Section id="open-positions" labelledBy="open-title" className="scroll-mt-16">
       <div className="panel flex flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
           <p className="eyebrow mb-3">Open positions</p>

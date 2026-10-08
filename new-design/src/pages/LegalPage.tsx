@@ -14,7 +14,7 @@ const LegalPage = ({ path }: { path: keyof typeof docs }) => {
     <>
       <Seo path={path} />
       <PageHero crumb={title} eyebrow="Legal" title={title} />
-      <Section tone="light" labelledBy="page-title">
+      <Section labelledBy="page-title">
         <article className="max-w-3xl space-y-10">
           {doc.sections.map((s) => (
             <section key={s.heading}>

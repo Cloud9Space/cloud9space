@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ScrollManager } from "@/components/kit/ScrollManager";
+import { SmoothScroll } from "@/components/kit/SmoothScroll";
 
 export const Layout = () => (
   <>
@@ -12,6 +13,8 @@ export const Layout = () => (
     >
       Skip to content
     </a>
+    <SmoothScroll />
+    <div aria-hidden className="page-grid" />
     <ScrollManager />
     <Header />
     <main id="main" tabIndex={-1} className="outline-none">

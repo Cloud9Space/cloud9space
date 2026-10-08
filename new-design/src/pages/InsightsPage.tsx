@@ -21,7 +21,7 @@ const InsightsPage = () => (
         ))}
       </ul>
     </PageHero>
-    <Section tone="light" labelledBy="latest-title">
+    <Section labelledBy="latest-title">
       <h2 id="latest-title" className="t-meta mb-8 uppercase tracking-[0.14em]">
         Latest
       </h2>

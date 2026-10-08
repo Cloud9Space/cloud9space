@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Linkedin } from "lucide-react";
 import { credentials, leadership } from "@/content/site";
-import { Section } from "@/components/kit/Section";
+import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 
 export const LeaderCards = () => (
@@ -45,14 +45,15 @@ export const Credentials = () =>
   ) : null;
 
 export const CompanyLeadership = () => (
-  <Section tone="surface" labelledBy="company-title">
-    <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+  <Section labelledBy="company-title">
+    <SectionHeader id="company-title" eyebrow="Company" title="Built by engineers who had to make these systems work." />
+    <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
       <Reveal className="lg:col-span-6">
-        <p className="eyebrow mb-4">Company</p>
-        <h2 id="company-title" className="t-h2">
-          Built by engineers who had to make these systems work.
-        </h2>
-        <p className="t-body mt-5">
+        <p className="t-meta mb-4 uppercase tracking-[0.14em]">Leadership</p>
+        <LeaderCards />
+      </Reveal>
+      <Reveal className="lg:col-span-6" delay={100}>
+        <p className="t-body">
           Cloud9Space was founded in 2023 on a simple observation: complex real-world problems need more than isolated
           software development. A crop-risk model is useless without reliable field and satellite data; a sales map is
           useless if nobody trusts the numbers on it.
@@ -64,10 +65,6 @@ export const CompanyLeadership = () => (
         <Link to="/about" className="link-arrow mt-8">
           About Cloud9Space <ArrowRight size={14} aria-hidden />
         </Link>
-      </Reveal>
-      <Reveal className="lg:col-span-6" delay={100}>
-        <p className="t-meta mb-4 uppercase tracking-[0.14em]">Leadership</p>
-        <LeaderCards />
       </Reveal>
     </div>
     {credentials.length > 0 && (

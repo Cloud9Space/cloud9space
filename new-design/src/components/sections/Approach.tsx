@@ -3,7 +3,7 @@ import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 
 export const Approach = ({ showModels = true }: { showModels?: boolean }) => (
-  <Section tone="light" labelledBy="approach-title">
+  <Section labelledBy="approach-title">
     <SectionHeader
       id="approach-title"
       eyebrow="Engineering approach"

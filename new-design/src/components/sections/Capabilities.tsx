@@ -24,7 +24,7 @@ export const Capabilities = () => {
   };
 
   return (
-    <Section id="capabilities" tone="dark" labelledBy="cap-title">
+    <Section id="capabilities" labelledBy="cap-title">
       <SectionHeader
         id="cap-title"
         eyebrow="What we engineer"
