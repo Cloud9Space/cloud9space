@@ -16,10 +16,12 @@ const simpleLinks = [
   { label: "Careers", to: "/careers" },
 ];
 
-export const Brand = ({ className }: { className?: string }) => (
+export const Brand = ({ className, light }: { className?: string; light?: boolean }) => (
   <Link to="/" className={cn("flex items-center gap-2.5 shrink-0", className)} aria-label="Cloud9Space home">
     <img src={logo} alt="" width={56} height={32} className="h-8 w-auto" />
-    <span className="font-heading text-[1.15rem] font-bold tracking-tight text-foreground">Cloud9Space</span>
+    <span className={cn("font-heading text-[1.15rem] font-bold tracking-tight", light ? "text-white" : "text-foreground")}>
+      Cloud9Space
+    </span>
   </Link>
 );
 
@@ -79,21 +81,28 @@ export const Header = () => {
   };
 
   const navItem =
-    "relative px-3 py-2 text-[0.9rem] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md";
+    "relative px-3 py-2 text-[0.9rem] font-medium text-white/80 hover:text-white transition-colors rounded-md";
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300",
-        "bg-background/90 backdrop-blur-xl border-b",
-        scrolled || open || mobileOpen ? "border-border" : "border-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300",
+        "border-b",
+        open || mobileOpen
+          ? "bg-slate-950/70 backdrop-blur-2xl backdrop-saturate-150 border-white/10 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.5)]"
+          : scrolled
+          ? "bg-slate-950/35 backdrop-blur-xl backdrop-saturate-150 border-white/10 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.35)]"
+          : "bg-transparent border-transparent",
       )}
       onMouseLeave={scheduleClose}
     >
       <div className="container flex h-[72px] items-center justify-between gap-6">
-        <Brand />
+        <Brand light />
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-0.5">
+        <nav
+          aria-label="Primary"
+          className="hidden lg:flex items-center gap-0.5 rounded-md border border-white/10 bg-white/10 px-2 py-1.5 backdrop-blur-md"
+        >
           {(
             [
               ["capabilities", "What We Do"],
@@ -108,7 +117,7 @@ export const Header = () => {
               aria-controls={`${panelId}-${key}`}
               onClick={() => setOpen(open === key ? null : key)}
               onMouseEnter={() => show(key)}
-              className={cn(navItem, "inline-flex items-center gap-1", open === key && "text-foreground")}
+              className={cn(navItem, "inline-flex items-center gap-1", open === key && "text-white")}
             >
               {label}
               <ChevronDown size={14} className={cn("transition-transform", open === key && "rotate-180")} aria-hidden />
@@ -120,7 +129,7 @@ export const Header = () => {
               to={l.to}
               onMouseEnter={scheduleClose}
               // In-page anchors such as "/#team" would otherwise match the home page and always look active.
-              className={({ isActive }) => cn(navItem, isActive && !l.to.includes("#") && "text-foreground")}
+              className={({ isActive }) => cn(navItem, isActive && !l.to.includes("#") && "text-white")}
             >
               {l.label}
             </NavLink>
@@ -133,7 +142,7 @@ export const Header = () => {
           </Link>
           <button
             type="button"
-            className="lg:hidden -mr-2 p-2 text-foreground"
+            className="lg:hidden -mr-2 p-2 text-white"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls={`${panelId}-mobile`}
@@ -149,7 +158,7 @@ export const Header = () => {
         id={`${panelId}-capabilities`}
         hidden={open !== "capabilities"}
         onMouseEnter={() => show("capabilities")}
-        className={cn("hidden border-t border-border bg-background", open === "capabilities" && "lg:block")}
+        className={cn("tone-ink hidden border-t border-white/10 bg-transparent", open === "capabilities" && "lg:block")}
       >
         <div className="container grid grid-cols-12 gap-10 py-10">
           <div className="col-span-8">
@@ -157,7 +166,7 @@ export const Header = () => {
             <ul className="grid grid-cols-2 gap-x-8 gap-y-1">
               {capabilities.map((c) => (
                 <li key={c.slug}>
-                  <Link to={c.path} className="group flex gap-4 rounded-md p-3 -mx-3 hover:bg-muted/60 transition-colors">
+                  <Link to={c.path} className="group flex gap-4 rounded-md p-3 -mx-3 hover:bg-white/10 transition-colors">
                     <span className="t-meta pt-1 text-accent">{c.num}</span>
                     <span>
                       <span className="block font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -170,7 +179,7 @@ export const Header = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-4 panel p-6 flex flex-col justify-between bg-grid">
+          <div className="col-span-4 panel !bg-white/[0.06] !shadow-none border-white/10 p-6 flex flex-col justify-between bg-grid">
             <div>
               <p className="eyebrow mb-3">Our differentiator</p>
               <p className="font-heading text-lg font-semibold leading-snug">
@@ -188,7 +197,7 @@ export const Header = () => {
         id={`${panelId}-industries`}
         hidden={open !== "industries"}
         onMouseEnter={() => show("industries")}
-        className={cn("hidden border-t border-border bg-background", open === "industries" && "lg:block")}
+        className={cn("tone-ink hidden border-t border-white/10 bg-transparent", open === "industries" && "lg:block")}
       >
         <div className="container grid grid-cols-12 gap-10 py-10">
           <div className="col-span-8">
@@ -198,7 +207,7 @@ export const Header = () => {
                 <li key={i.id}>
                   <Link
                     to={`/industries#${i.id}`}
-                    className="group block rounded-md p-3 -mx-3 hover:bg-muted/60 transition-colors"
+                    className="group block rounded-md p-3 -mx-3 hover:bg-white/10 transition-colors"
                   >
                     <span className="block font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
                       {i.name}
@@ -209,7 +218,7 @@ export const Header = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-4 panel p-6 flex flex-col justify-between">
+          <div className="col-span-4 panel !bg-white/[0.06] !shadow-none border-white/10 p-6 flex flex-col justify-between">
             <div>
               <p className="eyebrow mb-3">Client success</p>
               <p className="font-heading text-lg font-semibold leading-snug">
@@ -228,7 +237,7 @@ export const Header = () => {
         id={`${panelId}-mobile`}
         hidden={!mobileOpen}
         data-lenis-prevent
-        className="lg:hidden h-[calc(100dvh-72px)] overflow-y-auto border-t border-border bg-background"
+        className="tone-ink lg:hidden h-[calc(100dvh-72px)] overflow-y-auto border-t border-white/10 bg-transparent"
       >
         <nav aria-label="Mobile" className="container py-6 flex flex-col">
           <MobileGroup title="What We Do">

@@ -27,12 +27,12 @@ export const GeoDepth = () => (
       lead="Geospatial engineering is where Cloud9Space began, and it is what separates us from general AI and software firms. We work with imagery, terrain and vector data at production scale — and connect it to the business systems that act on it."
     />
     <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
-      <div className="lg:col-span-5">
-        <dl className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
+      <div className="lg:col-span-7">
+        <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
           {geo.map(([name, detail]) => (
             <div key={name} className="border-t border-border pt-3">
-              <dt className="text-sm font-semibold text-foreground">{name}</dt>
-              <dd className="mt-1 text-xs leading-snug text-muted-foreground">{detail}</dd>
+              <dt className="text-base font-semibold text-foreground">{name}</dt>
+              <dd className="mt-1 text-sm leading-snug text-muted-foreground">{detail}</dd>
             </div>
           ))}
         </dl>
@@ -40,9 +40,9 @@ export const GeoDepth = () => (
           Geospatial Intelligence <ArrowRight size={14} aria-hidden />
         </Link>
       </div>
-      <Reveal className="lg:col-span-7" delay={120}>
-        <div className="tone-ink ink-panel p-6 sm:p-10">
-          <Parallax distance={30}>
+      <Reveal className="lg:col-span-5" delay={120}>
+        <div className="tone-ink ink-panel p-6 sm:p-8">
+          <Parallax distance={30} className="mx-auto max-w-[460px]">
             <GeoLayers />
           </Parallax>
         </div>

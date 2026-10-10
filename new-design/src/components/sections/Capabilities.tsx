@@ -32,7 +32,7 @@ export const Capabilities = () => {
         lead="Each practice stands on its own. The value comes from how they combine — data that feeds models, models that understand location, and software that puts both in front of people."
       />
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-12">
+      <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-12">
         <div
           role="tablist"
           aria-orientation="vertical"
@@ -52,7 +52,7 @@ export const Capabilities = () => {
               onClick={() => setActive(i)}
               className={cn(
                 "group shrink-0 text-left transition-colors",
-                "rounded-md border px-4 py-2.5 lg:rounded-none lg:border-0 lg:border-t lg:px-0 lg:py-6",
+                "rounded-md border px-4 py-2.5 lg:flex lg:flex-1 lg:items-center lg:rounded-none lg:border-0 lg:border-t lg:px-0 lg:py-4",
                 i === active
                   ? "border-primary bg-primary/10 lg:bg-transparent lg:border-t-primary"
                   : "border-border hover:border-foreground/40",
@@ -62,7 +62,7 @@ export const Capabilities = () => {
                 <span className={cn("t-meta", i === active ? "text-accent" : "")}>{c.num}</span>
                 <span
                   className={cn(
-                    "font-heading font-semibold whitespace-nowrap lg:whitespace-normal lg:text-2xl lg:tracking-tight",
+                    "font-heading font-semibold whitespace-nowrap lg:text-xl lg:tracking-tight",
                     i === active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
                   )}
                 >

@@ -19,12 +19,12 @@ export const Convergence = () => (
       lead="Most firms are strong in one of these. Real operational problems need all four at once — and they need to be designed together."
     />
     <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
-      <Reveal className="tone-ink ink-panel p-6 sm:p-10 lg:col-span-6">
-        <Parallax distance={30}>
+      <Reveal className="tone-ink ink-panel p-6 sm:p-8 lg:col-span-5">
+        <Parallax distance={30} className="mx-auto max-w-[380px]">
           <ConvergenceDiagram />
         </Parallax>
       </Reveal>
-      <div className="lg:col-span-6">
+      <div className="lg:col-span-7">
         <dl className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
           {roles.map((r, i) => (
             <Reveal key={r.name} delay={i * 70}>
