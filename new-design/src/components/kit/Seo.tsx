@@ -6,6 +6,18 @@ type SeoProps = {
   jsonLd?: Record<string, unknown>;
 };
 
+/** Optional per-route social fields; routes without them fall back to the site defaults. */
+type RouteMeta = {
+  title: string;
+  description: string;
+  type?: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageAlt?: string;
+  jsonLd?: Record<string, unknown>;
+};
+
 const setMeta = (attr: "name" | "property", key: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
   if (!el) {
@@ -22,9 +34,15 @@ const setMeta = (attr: "name" | "property", key: string, content: string) => {
  */
 export const Seo = ({ path, jsonLd }: SeoProps) => {
   useEffect(() => {
-    const meta = seo.routes[path];
+    const meta: RouteMeta = seo.routes[path];
     const url = seo.siteUrl + (path === "/" ? "/" : path);
     document.title = meta.title;
+    setMeta("property", "og:type", meta.type ?? "website");
+    setMeta("property", "og:image", seo.siteUrl + (meta.image ?? seo.ogImage));
+    setMeta("property", "og:image:width", String(meta.imageWidth ?? 1200));
+    setMeta("property", "og:image:height", String(meta.imageHeight ?? 630));
+    setMeta("property", "og:image:alt", meta.imageAlt ?? seo.routes["/"].title);
+    setMeta("name", "twitter:image", seo.siteUrl + (meta.image ?? seo.ogImage));
     setMeta("name", "description", meta.description);
     setMeta("property", "og:title", meta.title);
     setMeta("property", "og:description", meta.description);
@@ -40,11 +58,15 @@ export const Seo = ({ path, jsonLd }: SeoProps) => {
     }
     canonical.href = url;
 
-    if (!jsonLd) return;
+    const ld = jsonLd ?? meta.jsonLd;
+    if (!ld) return;
+    // The prerendered page already carries this route's JSON-LD; don't add it twice.
+    const prerendered = document.head.querySelector(`script[type="application/ld+json"][data-route="${path}"]`);
+    if (prerendered) return () => prerendered.remove();
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.dataset.route = path;
-    script.text = JSON.stringify(jsonLd);
+    script.text = JSON.stringify(ld);
     document.head.appendChild(script);
     return () => script.remove();
   }, [path, jsonLd]);

@@ -8,7 +8,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 
 const WorkPage = () => (
   <>
-    <Seo path="/work" />
+    {/* <Seo path="/work" /> — Client Success hidden for now; restore with the "/work" entry in seo.json */}
     <PageHero
       crumb="Client Success"
       eyebrow="Client success"

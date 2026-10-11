@@ -14,15 +14,15 @@ const facts = [
 export const Hero = () => (
   <section className="tone-ink relative overflow-hidden bg-background pt-[72px]" aria-labelledby="hero-title">
     <div aria-hidden className="absolute inset-0 bg-grid" />
-    <div className="container relative grid items-center gap-10 py-14 lg:min-h-[calc(100svh-72px)] lg:grid-cols-12 lg:py-16">
+    <div className="container relative grid items-center gap-10 pb-14 pt-8 lg:min-h-[calc(100svh-72px)] lg:grid-cols-12 lg:items-start lg:pb-16 lg:pt-12">
       <div className="flex flex-col lg:col-span-6">
-        <p className="eyebrow self-start">AI · Data · Geospatial · Engineering</p>
-        <h1 id="hero-title" className="t-display mt-7">
+        {/* <p className="eyebrow self-start">AI · Data · Geospatial · Engineering</p> */}
+        <h1 id="hero-title" className="t-display">
           Engineering intelligent systems for a data&#8209;driven world.
         </h1>
         <p className="t-lead mt-6 max-w-xl">
-          Cloud9Space helps enterprises build intelligent products, data platforms and geospatial systems using AI,
-          modern software engineering and cloud technologies.
+          Cloud9Space is a specialist engineering team for AI, data and geospatial systems. We take them from first
+          architecture to production, built to hold up under real-world data.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a href="#capabilities" className="btn-light">

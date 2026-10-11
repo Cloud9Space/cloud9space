@@ -5,8 +5,10 @@ import Home from "./pages/Home";
 
 const CapabilityPage = lazy(() => import("./pages/CapabilityPage"));
 const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
-const WorkPage = lazy(() => import("./pages/WorkPage"));
+// TODO: Client Success hidden for now — restore this import and the /work route below.
+// const WorkPage = lazy(() => import("./pages/WorkPage"));
 const InsightsPage = lazy(() => import("./pages/InsightsPage"));
+const InsightPostPage = lazy(() => import("./pages/InsightPostPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const CareersPage = lazy(() => import("./pages/CareersPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
@@ -38,8 +40,10 @@ const App = () => (
         <Route path="/software-engineering" element={<CapabilityPage slug="software" />} />
         <Route path="/cloud" element={<CapabilityPage slug="cloud" />} />
         <Route path="/industries" element={<IndustriesPage />} />
-        <Route path="/work" element={<WorkPage />} />
+        {/* <Route path="/work" element={<WorkPage />} /> */}
+        <Route path="/work" element={<Navigate to="/" replace />} />
         <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/insights/:slug" element={<InsightPostPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />

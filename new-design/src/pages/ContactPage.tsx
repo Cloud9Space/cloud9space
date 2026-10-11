@@ -1,4 +1,4 @@
-import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
 import { company } from "@/content/site";
 import { Seo } from "@/components/kit/Seo";
 import { PageHero } from "@/components/kit/PageHero";
@@ -7,7 +7,6 @@ import { ContactForm } from "@/components/sections/ContactForm";
 
 const details = [
   { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
-  { icon: Phone, label: "Phone", value: company.phone, href: company.phoneHref },
   {
     icon: MapPin,
     label: "Office",
@@ -25,7 +24,7 @@ const ContactPage = () => (
       crumb="Contact"
       eyebrow="Contact"
       title="Have a complex technology problem?"
-      lead="Tell us what you are trying to build. A short description is enough — we will follow up to understand the details."
+      lead="Tell us what you are trying to build. A short description is enough. We will follow up to understand the details."
     />
     <Section labelledBy="form-title">
       <div className="grid gap-12 lg:grid-cols-12">

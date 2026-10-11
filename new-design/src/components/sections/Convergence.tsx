@@ -4,7 +4,7 @@ import { ConvergenceDiagram } from "@/components/visuals/ConvergenceDiagram";
 import { Parallax } from "@/components/kit/Parallax";
 
 const roles = [
-  { name: "AI", role: "Intelligence", body: "Models that classify, predict, retrieve and reason — evaluated against real cases." },
+  { name: "AI", role: "Intelligence", body: "Models that classify, predict, retrieve and reason, evaluated against real cases." },
   { name: "Data", role: "Foundation", body: "Governed pipelines and metric layers that every model and dashboard can trust." },
   { name: "Geospatial", role: "Context", body: "Where things happen: territories, parcels, routes, terrain and exposure to risk." },
   { name: "Engineering", role: "Execution", body: "Applications, APIs and cloud infrastructure that put the result in front of users." },
@@ -15,8 +15,8 @@ export const Convergence = () => (
     <SectionHeader
       id="conv-title"
       eyebrow="Our differentiator"
-      title="Where AI meets data and geography."
-      lead="Most firms are strong in one of these. Real operational problems need all four at once — and they need to be designed together."
+      title="Four disciplines. One system."
+      lead="Most firms are strong in one of these. Real operational problems need all four at once, so we design them together from day one."
     />
     <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
       <Reveal className="tone-ink ink-panel p-6 sm:p-8 lg:col-span-5">
@@ -39,7 +39,7 @@ export const Convergence = () => (
         <Reveal className="mt-10 border-l-2 border-primary pl-5">
           <p className="text-[0.95rem] leading-relaxed text-foreground">
             A route-to-market platform is a good example: sales pipelines (data), outlets and beats on a map
-            (geospatial), signals that flag under-served territories (AI), and an application regional managers
+            (geospatial), signals that flag under-served territories (AI) and an application regional managers
             actually use (engineering). Remove any one and the system stops being useful.
           </p>
         </Reveal>

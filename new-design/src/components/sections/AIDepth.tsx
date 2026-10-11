@@ -7,7 +7,7 @@ import { AIPipeline } from "@/components/visuals/AIPipeline";
 const stalls = [
   {
     problem: "The demo used a clean sample.",
-    answer: "We profile the real data first — coverage, freshness, permissions — and design retrieval and features around it.",
+    answer: "We profile the real data first, including coverage, freshness and permissions and design retrieval and features around it.",
   },
   {
     problem: "Nobody agreed what “good” looks like.",
@@ -19,18 +19,6 @@ const stalls = [
   },
 ];
 
-const topics = [
-  "AI strategy & use-case selection",
-  "Retrieval-augmented generation",
-  "Agentic workflows & tool use",
-  "LLM applications",
-  "AI-assisted workflows",
-  "Computer vision",
-  "Predictive models",
-  "Model evaluation",
-  "MLOps",
-  "Production deployment",
-];
 
 export const AIDepth = () => (
   <Section labelledBy="ai-title">
@@ -38,7 +26,7 @@ export const AIDepth = () => (
         id="ai-title"
         eyebrow="AI engineering"
         title="From AI experiments to production systems."
-        lead="Calling a model API is the easy part. Useful AI depends on the data underneath it, the architecture around it, an honest way to measure it, and the engineering to run it every day."
+        lead="Calling a model API is the easy part. Useful AI depends on the data underneath it, the architecture around it, an honest way to measure it and the engineering to run it every day."
       />
 
     <div className="tone-blue mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
@@ -58,19 +46,5 @@ export const AIDepth = () => (
         <AIPipeline />
       </div>
     </Reveal>
-
-    <div className="mt-14 flex flex-col gap-8 border-t border-border pt-10 lg:flex-row lg:items-start lg:justify-between">
-      <ul className="grid flex-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-        {topics.map((t) => (
-          <li key={t} className="flex items-center gap-3 text-sm text-foreground">
-            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-            {t}
-          </li>
-        ))}
-      </ul>
-      <Link to="/ai" className="link-arrow shrink-0">
-        AI & Intelligent Systems <ArrowRight size={14} aria-hidden />
-      </Link>
-    </div>
   </Section>
 );

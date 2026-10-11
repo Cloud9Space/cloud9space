@@ -44,11 +44,13 @@ const IndustriesPage = () => (
                   </li>
                 ))}
               </ul>
+              {/* Client Success hidden for now
               {ind.caseIds.map((id) => (
                 <Link key={id} to={`/work#${id}`} className="link-arrow mt-4">
                   {caseById[id].title} <ArrowRight size={14} aria-hidden />
                 </Link>
               ))}
+              */}
             </div>
           </Reveal>
         ))}

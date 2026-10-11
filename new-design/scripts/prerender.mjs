@@ -26,6 +26,20 @@ for (const [path, meta] of Object.entries(seo.routes)) {
   html = replaceAttr(html, /(<meta property="og:description" content=")[^"]*(")/, meta.description);
   html = replaceAttr(html, /(<meta name="twitter:title" content=")[^"]*(")/, meta.title);
   html = replaceAttr(html, /(<meta name="twitter:description" content=")[^"]*(")/, meta.description);
+  if (meta.type) html = replaceAttr(html, /(<meta property="og:type" content=")[^"]*(")/, meta.type);
+  if (meta.image) {
+    const image = seo.siteUrl + meta.image;
+    html = replaceAttr(html, /(<meta property="og:image" content=")[^"]*(")/, image);
+    html = replaceAttr(html, /(<meta name="twitter:image" content=")[^"]*(")/, image);
+    html = replaceAttr(html, /(<meta property="og:image:width" content=")[^"]*(")/, String(meta.imageWidth));
+    html = replaceAttr(html, /(<meta property="og:image:height" content=")[^"]*(")/, String(meta.imageHeight));
+    html = replaceAttr(html, /(<meta property="og:image:alt" content=")[^"]*(")/, meta.imageAlt);
+  }
+  if (meta.jsonLd) {
+    // Escape "<" so the JSON can never close the script element early.
+    const ld = JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c");
+    html = html.replace("</head>", `  <script type="application/ld+json" data-route="${path}">${ld}</script>\n  </head>`);
+  }
 
   const out = path === "/" ? join(dist, "index.html") : join(dist, path.slice(1), "index.html");
   mkdirSync(dirname(out), { recursive: true });

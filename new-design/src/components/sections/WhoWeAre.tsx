@@ -1,39 +1,45 @@
-import { company } from "@/content/site";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
+import { NeuralField } from "@/components/visuals/NeuralField";
 
-const facts = [
-  { term: "Founded", value: `${company.founded} · ${company.city}, India` },
-  { term: "Disciplines", value: "AI · Data · Geospatial · Software · Cloud" },
-  { term: "Work with", value: "Enterprises, consulting firms and technology companies" },
+const traits = [
+  { title: "Specialists", body: "AI, data and geospatial engineering is all we do." },
+  { title: "One team", body: "The same engineers own the system end to end." },
+  { title: "Built to run", body: "We measure success in production, not in demos." },
 ];
 
 export const WhoWeAre = () => (
   <Section labelledBy="who-title">
-    <SectionHeader id="who-title" eyebrow="Who we are" title="Technology expertise. Engineering execution. Business outcomes." />
-    <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
-      <Reveal className="tone-blue ink-panel p-8 sm:p-10 lg:col-span-5">
+    <SectionHeader id="who-title" eyebrow="Who we are" title="Where AI meets data and geography." />
+    <div className="mt-12 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+      <Reveal className="tone-blue ink-panel overflow-hidden lg:col-span-6">
         <div aria-hidden className="absolute inset-0 bg-grid" />
-        <dl className="relative grid gap-8">
-          {facts.map((f) => (
-            <div key={f.term} className="border-t border-border pt-4 first:border-0 first:pt-0">
-              <dt className="t-meta uppercase tracking-[0.12em]">{f.term}</dt>
-              <dd className="mt-2 font-heading text-lg font-semibold leading-snug text-foreground">{f.value}</dd>
+        <div className="relative">
+          <NeuralField />
+        </div>
+      </Reveal>
+      <Reveal className="lg:col-span-6" delay={100}>
+        <p className="t-lead max-w-xl text-foreground">
+          We build AI systems that understand your data and the world it describes.
+        </p>
+        <p className="t-body mt-4 max-w-xl">
+          Cloud9Space is an engineering company founded in Pune in 2023. We started with geospatial systems and grew
+          into data platforms and applied AI. Today we build complete products for enterprises, consulting firms and
+          technology companies.
+        </p>
+        <dl className="mt-8 grid gap-5 border-t border-border pt-6 sm:grid-cols-3">
+          {traits.map((t) => (
+            <div key={t.title}>
+              <dt className="font-heading font-semibold text-foreground">{t.title}</dt>
+              <dd className="mt-1 text-sm text-muted-foreground">{t.body}</dd>
             </div>
           ))}
         </dl>
-      </Reveal>
-      <Reveal className="lg:col-span-7 lg:self-center" delay={100}>
-        <p className="t-lead text-foreground">
-          We design and build data platforms, AI applications and geospatial systems that turn complex operational
-          data into usable intelligence.
-        </p>
-        <p className="t-body mt-5">
-          Most real business problems do not sit neatly inside one discipline. Planning a sales territory, scoring a
-          farm's climate risk or running a field programme needs data pipelines, location context, models and an
-          application people can use — built to work together. Cloud9Space brings those disciplines into one
-          engineering team, so the system is designed as a whole rather than stitched together across vendors.
-        </p>
+        <Link to="/about" className="link-arrow mt-8">
+          More about us <ArrowRight size={14} aria-hidden />
+        </Link>
       </Reveal>
     </div>
   </Section>

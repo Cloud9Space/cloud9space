@@ -31,7 +31,7 @@ export const AIPipeline = () => (
     </ol>
     <figcaption className="mt-4 flex items-center gap-2 t-meta">
       <RotateCcw size={14} className="text-accent" aria-hidden />
-      Monitoring feeds back into data and evaluation — the loop that keeps AI reliable after launch.
+      Monitoring feeds back into data and evaluation. That loop keeps AI reliable after launch.
     </figcaption>
   </figure>
 );

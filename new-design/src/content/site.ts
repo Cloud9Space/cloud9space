@@ -23,8 +23,6 @@ export const company = {
   region: "Maharashtra",
   country: "India",
   email: "contact@cloud9space.com",
-  phone: "+91 86690 23458",
-  phoneHref: "tel:+918669023458",
   address: {
     line1: "201, 2nd Floor, Kodesk, 45 Baner Street, Baner Road",
     line2: "Opposite D-Mart (Adjacent to Manipal Hospital), Baner",
@@ -79,7 +77,7 @@ export const capabilities: Capability[] = [
     navBlurb: "LLM applications, agents, computer vision and MLOps",
     headline: "AI that survives contact with production.",
     summary:
-      "We build AI systems that run inside real workflows: retrieval-augmented assistants over enterprise data, agents that call your systems safely, vision models on imagery, and predictive models with the evaluation and monitoring needed to trust them.",
+      "We build AI systems that run inside real workflows: retrieval-augmented assistants over enterprise data, agents that call your systems safely, vision models on imagery and predictive models with the evaluation and monitoring needed to trust them.",
     items: [
       "Generative AI",
       "Machine learning",
@@ -92,7 +90,7 @@ export const capabilities: Capability[] = [
     offerings: [
       {
         title: "LLM & RAG applications",
-        body: "Assistants and search over documents, databases and APIs, with retrieval tuned to your data, grounded answers with citations, and access control that mirrors your source systems.",
+        body: "Assistants and search over documents, databases and APIs, with retrieval tuned to your data, grounded answers with citations and access control that mirrors your source systems.",
       },
       {
         title: "Agentic workflows",
@@ -104,7 +102,7 @@ export const capabilities: Capability[] = [
       },
       {
         title: "Computer vision & GeoAI",
-        body: "Detection, segmentation and classification on photos, drone and satellite imagery — from land-parcel segmentation to vegetation and water detection.",
+        body: "Detection, segmentation and classification on photos, drone and satellite imagery, from land-parcel segmentation to vegetation and water detection.",
       },
       {
         title: "Predictive & decision models",
@@ -122,7 +120,7 @@ export const capabilities: Capability[] = [
       },
       {
         title: "Evaluate like software",
-        body: "Every AI feature ships with a test set and an acceptance bar agreed with the business, and is re-run on every change.",
+        body: "Every AI feature ships with a test set and an acceptance bar agreed with the business and is re-run on every change.",
       },
       {
         title: "Design for the human in the loop",
@@ -141,7 +139,7 @@ export const capabilities: Capability[] = [
     navBlurb: "Platforms, pipelines, warehouses and data quality",
     headline: "The data foundation everything else depends on.",
     summary:
-      "We design and build the pipelines, storage and metric layers that turn scattered operational data into something analysts, applications and AI models can rely on — with quality checks, lineage and cost under control.",
+      "We design and build the pipelines, storage and metric layers that turn scattered operational data into something analysts, applications and AI models can rely on, with quality checks, lineage and cost under control.",
     items: [
       "Data platforms",
       "ETL / ELT",
@@ -163,7 +161,7 @@ export const capabilities: Capability[] = [
       },
       {
         title: "Metric & semantic layers",
-        body: "Business metrics defined once and consumed everywhere — dashboards, APIs and AI assistants — so numbers stop drifting between teams.",
+        body: "Business metrics defined once and used everywhere: dashboards, APIs and AI assistants. Numbers stop drifting between teams.",
       },
       {
         title: "Data quality & observability",
@@ -204,7 +202,7 @@ export const capabilities: Capability[] = [
     navBlurb: "GIS platforms, remote sensing, GeoAI and spatial APIs",
     headline: "Intelligence, with location as context.",
     summary:
-      "Geospatial engineering is where Cloud9Space started. We build GIS platforms, raster and vector processing pipelines, spatial APIs and map applications that handle real-world data volumes — from satellite scenes to millions of field records.",
+      "Geospatial engineering is where Cloud9Space started. We build GIS platforms, raster and vector processing pipelines, spatial APIs and map applications that handle real-world data volumes, from satellite scenes to millions of field records.",
     items: [
       "GIS platforms",
       "Satellite & remote sensing",
@@ -230,7 +228,7 @@ export const capabilities: Capability[] = [
       },
       {
         title: "Geospatial APIs",
-        body: "Geocoding, reverse geocoding, distance and catchment calculations, and hazard-zone checks exposed as clean, documented services.",
+        body: "Geocoding, reverse geocoding, distance and catchment calculations and hazard-zone checks exposed as clean, documented services.",
       },
       {
         title: "Map applications & dashboards",
@@ -238,7 +236,7 @@ export const capabilities: Capability[] = [
       },
       {
         title: "GeoAI",
-        body: "Segmentation and classification models on imagery — land parcels, vegetation, water bodies — feeding back into GIS layers and decision tools.",
+        body: "Segmentation and classification models that find land parcels, vegetation and water bodies in imagery and feed the results back into GIS layers and decision tools.",
       },
     ],
     principles: [
@@ -267,7 +265,7 @@ export const capabilities: Capability[] = [
     navBlurb: "Web platforms, APIs, microservices and QA automation",
     headline: "Products and platforms engineered to be operated.",
     summary:
-      "We build the applications that put data, AI and maps in front of users: enterprise web platforms, mobile and field apps, APIs and integrations — with automated testing and delivery pipelines from the first sprint.",
+      "We build the applications that put data, AI and maps in front of users: enterprise web platforms, mobile and field apps, APIs and integrations. Automated testing and delivery pipelines are in place from the first sprint.",
     items: [
       "Web applications",
       "Enterprise platforms",
@@ -330,7 +328,7 @@ export const capabilities: Capability[] = [
     navBlurb: "AWS, Azure, GCP, IaC, CI/CD and observability",
     headline: "Cloud infrastructure that is boring in the best way.",
     summary:
-      "We design and run cloud environments for data-heavy and spatial workloads on AWS, Azure and Google Cloud — serverless where it simplifies, containers where it doesn't, and infrastructure as code throughout.",
+      "We design and run cloud environments for data-heavy and spatial workloads on AWS, Azure and Google Cloud. Serverless where it simplifies, containers where it doesn't and infrastructure as code throughout.",
     items: [
       "AWS",
       "Azure",
@@ -418,12 +416,12 @@ export const caseStudies: CaseStudy[] = [
     // TODO(content): confirm whether the client (EY engagement) may be named on this case study.
     client: "Delivered within a Big Four consulting engagement",
     challenge:
-      "Field teams needed to capture location-linked operational data in areas with unreliable connectivity, and have it reach the client's CRM and GIS layers without manual re-entry.",
+      "Field teams needed to capture location-linked operational data in areas with unreliable connectivity and have it reach the client's CRM and GIS layers without manual re-entry.",
     solution:
-      "A serverless platform on AWS: an offline-capable field application syncing through API Gateway to Lambda services, relational storage on Amazon RDS, map layers published through GeoServer, and a bi-directional Salesforce integration.",
+      "A serverless platform on AWS: an offline-capable field application syncing through API Gateway to Lambda services, relational storage on Amazon RDS, map layers published through GeoServer and a bi-directional Salesforce integration.",
     highlights: [
       "Offline-first capture with conflict-safe sync",
-      "Serverless API layer — no servers to patch or scale manually",
+      "Serverless API layer with no servers to patch or scale manually",
       "Spatial layers served as standard OGC services",
       "CRM integration so field data lands where sales and operations already work",
     ],
@@ -444,9 +442,9 @@ export const caseStudies: CaseStudy[] = [
     // TODO(content): confirm client naming / disclosure.
     client: "Consumer goods (FMCG) business",
     challenge:
-      "Commercial teams were reading general trade, modern trade and quick-commerce performance from separate reports with inconsistent metric definitions, and had no spatial view of outlet coverage or beat execution.",
+      "Commercial teams were reading general trade, modern trade and quick-commerce performance from separate reports with inconsistent metric definitions and had no spatial view of outlet coverage or beat execution.",
     solution:
-      "A unified analytics product spanning channels — outlet secondary sales, beat and route execution, distributor financial health, pricing and market share — with metrics computed once in an API layer and visualised on interactive maps and dashboards.",
+      "A unified analytics product across every channel, covering outlet secondary sales, beat and route execution, distributor financial health, pricing and market share. Metrics are computed once in an API layer and visualised on interactive maps and dashboards.",
     highlights: [
       "One metric definition, served by the API and reused across every view",
       "Geospatial layers for outlet coverage, territories and beat routes",
@@ -468,9 +466,9 @@ export const caseStudies: CaseStudy[] = [
     sector: "Public health · Programme planning",
     client: "Health campaign planning programme",
     challenge:
-      "Campaign microplans were assembled in spreadsheets: slow to build, prone to formula and data-entry errors, and blind to geography — population estimates and hard-to-reach areas were not visible on a map.",
+      "Campaign microplans were assembled in spreadsheets: slow to build, prone to formula and data-entry errors and blind to geography. Population estimates and hard-to-reach areas were not visible on a map.",
     solution:
-      "A GIS microplanning platform where planners upload Excel, GeoJSON and shapefile data, configure planning assumptions and rules, analyse the result on a map, and export the finished microplan in the format they need.",
+      "A GIS microplanning platform where planners upload Excel, GeoJSON and shapefile data, configure planning assumptions and rules, analyse the result on a map and export the finished microplan in the format they need.",
     highlights: [
       "Multi-format ingestion: Excel, GeoJSON, shapefiles",
       "Rule and assumption configuration without code",
@@ -510,13 +508,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "farm-score",
-    title: "Farm Score — Agri Credit & Climate Risk",
+    title: "Farm Score: Agri Credit & Climate Risk",
     sector: "Agriculture · Financial risk",
     client: "Agritech programme for smallholder farmers",
     challenge:
-      "Smallholder and marginal farmers struggle to access fair, timely credit and insurance, and lenders lack reliable signals on farm-level climate risk.",
+      "Smallholder and marginal farmers struggle to access fair, timely credit and insurance and lenders lack reliable signals on farm-level climate risk.",
     solution:
-      "An automated scoring and monitoring dashboard combining farm data with geospatial and climate-risk signals — floods, droughts and heatwaves — to support credit and insurance decisions.",
+      "An automated scoring and monitoring dashboard that combines farm data with geospatial and climate-risk signals such as floods, droughts and heatwaves, to support credit and insurance decisions.",
     highlights: [
       "Farm-level risk signals from geospatial data",
       "Exposure to flood, drought and heat events",
@@ -577,7 +575,7 @@ export const industries: Industry[] = [
     name: "Consumer Goods & Retail",
     summary: "Route-to-market analytics and territory intelligence.",
     detail:
-      "Outlet-level sales intelligence, beat and route execution, distributor health and channel analytics across general trade, modern trade and quick commerce — on a map.",
+      "Outlet-level sales intelligence, beat and route execution, distributor health and channel analytics across general trade, modern trade and quick commerce, all on a map.",
     work: ["Growth Intelligence Platform"],
     caseIds: ["growth-intelligence"],
   },
@@ -614,7 +612,7 @@ export const industries: Industry[] = [
     name: "Technology & Consulting",
     summary: "Specialist AI, data and GIS engineering for firms that deliver.",
     detail:
-      "Engineering capacity and specialist geospatial and AI skills for consulting firms and technology companies — as project teams or embedded within their delivery.",
+      "Engineering capacity and specialist geospatial and AI skills for consulting firms and technology companies, as project teams or embedded within their delivery.",
     work: ["Consulting engagement delivery", "Kentrix.ai", "Terra Helix"],
     caseIds: ["field-intelligence"],
   },
@@ -658,101 +656,11 @@ export const approach = [
   {
     num: "06",
     title: "Scale",
-    body: "Optimise cost and performance, extend features, and support the system in operation.",
+    body: "Optimise cost and performance, extend features and support the system in operation.",
     output: "Roadmap · support",
   },
 ];
 
-export const engagementModels = [
-  {
-    title: "Outcome-based projects",
-    body: "A defined problem, an agreed architecture and a team accountable for delivering it to production.",
-  },
-  {
-    title: "Dedicated engineering teams",
-    body: "A cross-functional team that works as part of your product organisation, with Cloud9Space handling hiring and continuity.",
-  },
-  {
-    title: "Specialist augmentation",
-    body: "Geospatial, data or AI engineers added to an existing team where a specific skill is missing.",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/* Insights                                                            */
-/* ------------------------------------------------------------------ */
-
-export const insightCategories = ["AI", "Data", "Geospatial", "Engineering", "Cloud"] as const;
-
-export type Insight = {
-  title: string;
-  category: (typeof insightCategories)[number];
-  summary: string;
-  href: string;
-  date: string; // ISO
-  readMinutes?: number;
-  /** Sample post awaiting a real article; shown with a "Draft" badge and not linked. */
-  draft?: boolean;
-};
-
-// TODO(content): these are sample drafts so the blog layout can be reviewed. Replace each with a
-// published article (set href, remove `draft`) or delete it before launch.
-export const insights: Insight[] = [
-  {
-    title: "Text-to-SQL over a governed metric layer: what actually worked",
-    category: "AI",
-    summary: "Why we pointed the model at metric definitions instead of raw tables, and how we evaluate answers before anyone sees them.",
-    href: "",
-    date: "2026-09-18",
-    readMinutes: 8,
-    draft: true,
-  },
-  {
-    title: "Cloud-native geospatial: COGs, GeoParquet and dynamic tiling in production",
-    category: "Geospatial",
-    summary: "Moving large raster and vector workloads off file shares and onto formats that stream, tile and query at scale.",
-    href: "",
-    date: "2026-09-04",
-    readMinutes: 10,
-    draft: true,
-  },
-  {
-    title: "A route-to-market data model sales teams will trust",
-    category: "Data",
-    summary: "Outlets, beats, distributors and channels: modelling general trade data so every dashboard agrees on the numbers.",
-    href: "",
-    date: "2026-08-21",
-    readMinutes: 7,
-    draft: true,
-  },
-  {
-    title: "Evaluating retrieval-augmented assistants before they reach users",
-    category: "AI",
-    summary: "Building an evaluation set with the business, choosing an acceptance bar, and running it in CI on every prompt change.",
-    href: "",
-    date: "2026-08-07",
-    readMinutes: 9,
-    draft: true,
-  },
-  {
-    title: "Offline-first field apps for low-connectivity programmes",
-    category: "Engineering",
-    summary: "Sync, conflict handling and map tiles on the device, for field teams who spend most of the day without a signal.",
-    href: "",
-    date: "2026-07-24",
-    readMinutes: 6,
-    draft: true,
-  },
-  {
-    title: "Keeping cloud costs predictable for geospatial workloads",
-    category: "Cloud",
-    summary: "Where imagery pipelines quietly spend money, and the budgets, alerts and storage tiers we set up from day one.",
-    href: "",
-    date: "2026-07-10",
-    readMinutes: 6,
-    draft: true,
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /* Credentials                                                         */
@@ -774,7 +682,7 @@ export const leadership = [
     role: "Founder & CEO",
     initials: "SS",
     // TODO(content): replace with an approved bio (background, prior experience, focus areas).
-    bio: "Shubham founded Cloud9Space in 2023 and leads the company's technology direction and client engagements. His focus is the intersection of geospatial engineering, data platforms and applied AI — and making sure what the team builds holds up in production.",
+    bio: "Shubham founded Cloud9Space in 2023 and leads the company's technology direction and client engagements. His focus is the intersection of geospatial engineering, data platforms and applied AI and on making sure what the team builds holds up in production.",
     linkedin: "",
   },
 ];
@@ -842,7 +750,7 @@ export const footerNav = {
   Industries: industries.map((i) => ({ label: i.name, href: `/industries#${i.id}` })),
   Company: [
     { label: "About", href: "/about" },
-    { label: "Client Success", href: "/work" },
+    // { label: "Client Success", href: "/work" }, // Client Success hidden for now
     { label: "Insights", href: "/insights" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },

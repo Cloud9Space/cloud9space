@@ -38,13 +38,13 @@ const AboutPage = () => (
         </Reveal>
         <Reveal className="space-y-5 lg:col-span-7" delay={100}>
           <p className="t-lead text-foreground">
-            Cloud9Space was founded on the belief that the hardest real-world problems sit across disciplines — and that
+            Cloud9Space was founded on the belief that the hardest real-world problems sit across disciplines and that
             the systems solving them should be designed by one team that understands all of the pieces.
           </p>
           <p className="t-body">
             We started with geospatial engineering: satellite imagery, land parcels, terrain and the maps that make them
             usable. That work pulled us into data platforms, because spatial analysis is only as good as the data
-            underneath it, and into applied AI, because imagery and operational data are where models earn their keep.
+            underneath it and into applied AI, because imagery and operational data are where models earn their keep.
           </p>
           <p className="t-body">
             Today we combine AI, data engineering, geospatial intelligence and software engineering to build practical

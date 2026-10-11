@@ -9,7 +9,7 @@ import logo from "@/assets/logo-mark.png";
 type MenuKey = "capabilities" | "industries";
 
 const simpleLinks = [
-  { label: "Client Success", to: "/work" },
+  // { label: "Client Success", to: "/work" }, // Client Success hidden for now
   { label: "Team", to: "/#team" },
   { label: "Insights", to: "/insights" },
   { label: "About", to: "/about" },
@@ -183,7 +183,7 @@ export const Header = () => {
             <div>
               <p className="eyebrow mb-3">Our differentiator</p>
               <p className="font-heading text-lg font-semibold leading-snug">
-                AI, data and geospatial engineering in one team — not three vendors.
+                AI, data and geospatial engineering in one team, not three vendors.
               </p>
             </div>
             <Link to="/#convergence" className="link-arrow mt-6">
@@ -200,9 +200,9 @@ export const Header = () => {
         className={cn("tone-ink hidden border-t border-white/10 bg-transparent", open === "industries" && "lg:block")}
       >
         <div className="container grid grid-cols-12 gap-10 py-10">
-          <div className="col-span-8">
+          <div className="col-span-12">
             <p className="eyebrow mb-5">Where we have delivered</p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-1">
+            <ul className="grid grid-cols-3 gap-x-8 gap-y-1">
               {industries.map((i) => (
                 <li key={i.id}>
                   <Link
@@ -218,17 +218,19 @@ export const Header = () => {
               ))}
             </ul>
           </div>
+          {/* Client Success hidden for now — restore this panel and set the column above back to col-span-8 / grid-cols-2.
           <div className="col-span-4 panel !bg-white/[0.06] !shadow-none border-white/10 p-6 flex flex-col justify-between">
             <div>
               <p className="eyebrow mb-3">Client success</p>
               <p className="font-heading text-lg font-semibold leading-snug">
-                Field intelligence, route-to-market analytics and GIS planning — see the architecture behind the work.
+                Field intelligence, route-to-market analytics and GIS planning. See the architecture behind the work.
               </p>
             </div>
             <Link to="/work" className="link-arrow mt-6">
               View engagements <ArrowRight size={14} />
             </Link>
           </div>
+          */}
         </div>
       </div>
 

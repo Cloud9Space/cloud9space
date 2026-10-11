@@ -1,4 +1,4 @@
-import { approach, engagementModels } from "@/content/site";
+import { approach } from "@/content/site";
 import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 
@@ -8,7 +8,7 @@ export const Approach = ({ showModels = true }: { showModels?: boolean }) => (
       id="approach-title"
       eyebrow="Engineering approach"
       title="From problem to production."
-      lead="A delivery framework built around engineering checkpoints, not agency phases. Each stage produces something you can inspect."
+      lead="A delivery framework built around engineering checkpoints. Each stage produces something you can inspect."
     />
 
     <div className="relative mt-16">
@@ -25,19 +25,5 @@ export const Approach = ({ showModels = true }: { showModels?: boolean }) => (
       ))}
     </ol>
     </div>
-
-    {showModels && (
-      <div className="mt-20">
-        <h3 className="t-meta uppercase tracking-[0.14em]">How we engage</h3>
-        <ul className="mt-6 grid gap-4 md:grid-cols-3">
-          {engagementModels.map((m) => (
-            <li key={m.title} className="panel p-6">
-              <p className="font-heading text-lg font-semibold text-foreground">{m.title}</p>
-              <p className="t-body mt-2 text-sm">{m.body}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
   </Section>
 );

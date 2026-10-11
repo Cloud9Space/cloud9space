@@ -9,7 +9,7 @@
     },
     "/ai": {
       "title": "AI & Intelligent Systems | Cloud9Space",
-      "description": "Production AI engineering: LLM and RAG applications, AI agents, computer vision, predictive models, evaluation and MLOps — built on sound data foundations."
+      "description": "Production AI engineering: LLM and RAG applications, AI agents, computer vision, predictive models, evaluation and MLOps, built on sound data foundations."
     },
     "/data-engineering": {
       "title": "Data Engineering & Analytics | Cloud9Space",
@@ -21,7 +21,7 @@
     },
     "/software-engineering": {
       "title": "Software & Platform Engineering | Cloud9Space",
-      "description": "Web applications, enterprise platforms, APIs, microservices, modernisation, QA automation and DevOps — engineered for production."
+      "description": "Web applications, enterprise platforms, APIs, microservices, modernisation, QA automation and DevOps, engineered for production."
     },
     "/cloud": {
       "title": "Cloud Engineering on AWS, Azure & GCP | Cloud9Space",
@@ -29,15 +29,106 @@
     },
     "/industries": {
       "title": "Industries | Cloud9Space",
-      "description": "Where Cloud9Space has delivered: agriculture and agritech, consumer goods and retail, financial risk, real estate, public health programmes, and technology and consulting firms."
-    },
-    "/work": {
-      "title": "Client Success | Cloud9Space",
-      "description": "Selected engagements: field intelligence, route-to-market analytics, GIS microplanning, terrain analytics and agri-risk platforms — challenge, solution and architecture."
+      "description": "Where Cloud9Space has delivered: agriculture and agritech, consumer goods and retail, financial risk, real estate, public health programmes and technology and consulting firms."
     },
     "/insights": {
       "title": "Insights | Cloud9Space",
-      "description": "Engineering notes from Cloud9Space on AI, data, geospatial systems, software engineering and cloud."
+      "description": "Practical writing from Cloud9Space engineers on the systems we build: AI, data platforms, geospatial and software engineering."
+    },
+    "/insights/schema-vs-database-per-tenant-postgresql": {
+      "title": "Schema-per-tenant vs database-per-tenant: where should each customer's data live? | Cloud9Space",
+      "description": "A practical guide to multi-tenant PostgreSQL: how schema-per-tenant and database-per-tenant differ on isolation, cost, migrations, connections and recovery, and how to choose.",
+      "type": "article",
+      "image": "/insights/schema-vs-database-per-tenant-postgresql/images/schema-per-tenant.png",
+      "imageWidth": 2400,
+      "imageHeight": 1140,
+      "imageAlt": "One application routing two customers, Acme and Bloom, to separate schemas inside one PostgreSQL database.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Schema-per-tenant vs database-per-tenant: where should each customer's data live?",
+        "description": "A practical guide to multi-tenant PostgreSQL: how schema-per-tenant and database-per-tenant differ on isolation, cost, migrations, connections and recovery, and how to choose.",
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11",
+        "author": {
+          "@type": "Person",
+          "name": "Gaurav Niturkar",
+          "jobTitle": "Senior Software Engineer",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql/images/schema-per-tenant.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql"
+        },
+        "url": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql",
+        "keywords": [
+          "Multi-tenancy",
+          "PostgreSQL",
+          "SaaS architecture",
+          "Data isolation"
+        ],
+        "inLanguage": "en"
+      }
+    },
+    "/insights/vector-tiles-vs-wms-web-maps": {
+      "title": "Vector tiles vs WMS: choosing the right architecture for web maps | Cloud9Space",
+      "description": "Why some web maps feel slow and blurry while others glide. A plain-language comparison of WMS and vector tiles on freshness, feel, styling, data type and security, with a simple rule for choosing.",
+      "type": "article",
+      "image": "/insights/vector-tiles-vs-wms-web-maps/images/wms-vs-vector-tiles-flow.png",
+      "imageWidth": 2400,
+      "imageHeight": 1300,
+      "imageAlt": "Side-by-side flow: with WMS the server draws a new image on every zoom; with vector tiles the server hands out ready tiles and the browser draws the map.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vector tiles vs WMS: choosing the right architecture for web maps",
+        "description": "Why some web maps feel slow and blurry while others glide. A plain-language comparison of WMS and vector tiles on freshness, feel, styling, data type and security, with a simple rule for choosing.",
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11",
+        "author": {
+          "@type": "Person",
+          "name": "Shravani Kulkarni",
+          "jobTitle": "Software Engineer (Full Stack)",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps/images/wms-vs-vector-tiles-flow.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps"
+        },
+        "url": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps",
+        "keywords": [
+          "Web maps",
+          "GIS",
+          "Vector tiles",
+          "WMS",
+          "PostGIS"
+        ],
+        "inLanguage": "en"
+      }
     },
     "/about": {
       "title": "About Cloud9Space | AI, Data & Geospatial Engineering Company",
@@ -58,6 +149,12 @@
     "/terms": {
       "title": "Terms of Use | Cloud9Space",
       "description": "Terms governing the use of the Cloud9Space website."
+    }
+  },
+  "hiddenRoutes": {
+    "/work": {
+      "title": "Client Success | Cloud9Space",
+      "description": "Selected engagements: field intelligence, route-to-market analytics, GIS microplanning, terrain analytics and agri-risk platforms. The challenge, the solution and the architecture behind each."
     }
   }
 }

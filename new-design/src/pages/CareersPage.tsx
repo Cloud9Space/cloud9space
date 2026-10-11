@@ -12,7 +12,7 @@ const CareersPage = () => (
       crumb="Careers"
       eyebrow="Careers at Cloud9Space"
       title="Build what matters."
-      lead="Production AI, data platforms, GIS systems and cloud infrastructure — used by field teams, planners and analysts. We hire engineers who care how their work behaves after release."
+      lead="Production AI, data platforms, GIS systems and cloud infrastructure, used by field teams, planners and analysts. We hire engineers who care how their work behaves after release."
     >
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <a href="#open-positions" className="btn-primary">
@@ -20,32 +20,17 @@ const CareersPage = () => (
         </a>
       </div>
     </PageHero>
-
-    <Section labelledBy="why-title">
-      <SectionHeader id="why-title" eyebrow="Working here" title="What the work is like." />
-      <ol className="mt-12 grid gap-8 md:grid-cols-3">
-        {careerPrinciples.map((p, i) => (
-          <Reveal as="li" key={p.title} delay={i * 60} className="border-t-2 border-primary pt-5">
-            <p className="t-meta text-accent">{String(i + 1).padStart(2, "0")}</p>
-            <h3 className="t-h3 mt-2">{p.title}</h3>
-            <p className="t-body mt-3 text-sm">{p.body}</p>
-          </Reveal>
-        ))}
-      </ol>
-    </Section>
-
     <Section labelledBy="tracks-title">
       <SectionHeader
         id="tracks-title"
         eyebrow="Teams"
         title="Where you could work."
-        lead="Teams are cross-functional: most projects involve at least two of these disciplines."
       />
-      <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-        {careerTracks.map((t) => (
-          <li key={t.name} className="bg-card p-6">
+      <ul className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        {careerTracks.map((t, i) => (
+          <li key={t.name} className="flex items-center gap-4 bg-card px-6 py-5">
+            <span className="t-meta text-accent">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="t-h3">{t.name}</h3>
-            <p className="t-body mt-2 text-sm">{t.body}</p>
           </li>
         ))}
       </ul>

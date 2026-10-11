@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Mail, MapPin } from "lucide-react";
 import { company, footerNav } from "@/content/site";
 import { Brand } from "./Header";
 
@@ -28,9 +28,6 @@ export const Footer = () => {
               </a>
               <a href={`mailto:${company.email}`} className="flex items-center gap-2.5 hover:text-foreground">
                 <Mail size={16} aria-hidden /> {company.email}
-              </a>
-              <a href={company.phoneHref} className="flex items-center gap-2.5 hover:text-foreground">
-                <Phone size={16} aria-hidden /> {company.phone}
               </a>
             </address>
           </div>

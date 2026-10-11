@@ -26,7 +26,7 @@ export const ContactForm = () => {
       const res = await fetch(company.formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...data, _subject: `Website enquiry — ${data.company || data.name}` }),
+        body: JSON.stringify({ ...data, _subject: `Website enquiry: ${data.company || data.name}` }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
@@ -75,7 +75,7 @@ export const ContactForm = () => {
         </button>
       </div>
       <p role="status" aria-live="polite" className="text-sm sm:col-span-2 empty:hidden">
-        {status === "success" && <span className="text-success">Thank you — your message has been sent. We will be in touch shortly.</span>}
+        {status === "success" && <span className="text-success">Thank you, your message has been sent. We will be in touch shortly.</span>}
         {status === "error" && (
           <span className="text-destructive">
             Something went wrong. Please try again or email us at {company.email}.

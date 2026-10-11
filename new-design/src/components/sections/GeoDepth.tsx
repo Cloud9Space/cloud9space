@@ -6,15 +6,15 @@ import { GeoLayers } from "@/components/visuals/GeoLayers";
 import { Parallax } from "@/components/kit/Parallax";
 
 const geo = [
-  ["Satellite imagery", "Multispectral scenes, indices, change detection"],
+  ["Satellite imagery", "Change detection across seasons and years"],
   ["Remote sensing", "Vegetation, water and land-cover signals"],
-  ["Raster analytics", "COG, dynamic tiling, terrain and volumes"],
+  ["Raster analytics", "Terrain, elevation and volume analysis"],
   ["Vector analytics", "Parcels, boundaries, routes and catchments"],
-  ["Spatial databases", "PostGIS, GeoParquet, spatial indexing"],
+  ["Spatial databases", "Fast queries over millions of features"],
   ["GeoAI", "Segmentation and classification on imagery"],
   ["Location intelligence", "Outlets, territories and coverage"],
   ["Geospatial dashboards", "Planning and monitoring on a map"],
-  ["Large-scale rendering", "Vector tiles, deck.gl, GeoServer"],
+  ["Large-scale rendering", "Dense map data, smooth in the browser"],
   ["Spatial APIs", "Geocoding, distance, hazard-zone checks"],
 ];
 
@@ -24,7 +24,7 @@ export const GeoDepth = () => (
       id="geo-title"
       eyebrow="Geospatial intelligence"
       title="Intelligence, with location as context."
-      lead="Geospatial engineering is where Cloud9Space began, and it is what separates us from general AI and software firms. We work with imagery, terrain and vector data at production scale — and connect it to the business systems that act on it."
+      lead="Geospatial engineering is where Cloud9Space began and it is what separates us from general AI and software firms. We work with imagery, terrain and vector data at production scale and connect it to the business systems that act on it."
     />
     <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
       <div className="lg:col-span-7">

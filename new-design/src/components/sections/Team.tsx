@@ -121,7 +121,7 @@ export const TeamSection = () => {
             The team behind the systems.
           </h2>
           <p className="t-lead mt-4">
-            Engineers across AI, data, GIS, software and cloud — working as one team on every engagement.
+            Engineers across AI, data, GIS, software and cloud, working as one team on every engagement.
           </p>
         </Reveal>
         <div className="flex gap-2">

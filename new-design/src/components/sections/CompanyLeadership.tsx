@@ -59,8 +59,8 @@ export const CompanyLeadership = () => (
           useless if nobody trusts the numbers on it.
         </p>
         <p className="t-body mt-4">
-          We started in geospatial engineering, grew into data platforms and applied AI, and now build complete systems
-          across all of them — for enterprises, consulting firms and growing technology companies.
+          We started in geospatial engineering, grew into data platforms and applied AI and now build complete systems
+          across all of them for enterprises, consulting firms and growing technology companies.
         </p>
         <Link to="/about" className="link-arrow mt-8">
           About Cloud9Space <ArrowRight size={14} aria-hidden />

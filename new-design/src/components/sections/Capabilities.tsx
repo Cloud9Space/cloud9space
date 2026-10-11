@@ -29,7 +29,7 @@ export const Capabilities = () => {
         id="cap-title"
         eyebrow="What we engineer"
         title="Five capabilities, designed to work as one system."
-        lead="Each practice stands on its own. The value comes from how they combine — data that feeds models, models that understand location, and software that puts both in front of people."
+        lead="Each practice stands on its own. The value comes from how they combine: data that feeds models, models that understand location and software that puts both in front of people."
       />
 
       <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-12">

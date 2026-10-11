@@ -87,7 +87,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
     <>
       <Seo path={path} jsonLd={jsonLd} />
       <PageHero
-        eyebrow={`${cap.num} — ${cap.name}`}
+        eyebrow={`${cap.num} · ${cap.name}`}
         title={cap.headline}
         lead={cap.summary}
         crumb={cap.name}
@@ -136,6 +136,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
         </div>
       </Section>
 
+      {/* Client Success hidden for now
       {related.length > 0 && (
         <Section labelledBy="related-title">
           <SectionHeader id="related-title" eyebrow="Related work" title="Where we have applied this." />
@@ -155,6 +156,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
           </ul>
         </Section>
       )}
+      */}
 
       <Section labelledBy="other-title">
         <h2 id="other-title" className="t-meta uppercase tracking-[0.14em]">

@@ -7,26 +7,26 @@ export const privacy: LegalDoc = {
     {
       heading: "Introduction",
       body: [
-        "Cloud9Space values your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how Cloud9Space collects, uses, stores, and protects information obtained through this website or during business interactions.",
+        "Cloud9Space values your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how Cloud9Space collects, uses, stores and protects information obtained through this website or during business interactions.",
       ],
     },
     {
       heading: "Information We Collect",
       body: [
-        "We may collect personal information such as name, email address, phone number, company name, and other details voluntarily provided through contact forms, inquiries, or business communications.",
-        "We may also collect non-personal information such as browser type, IP address, device information, pages visited, and usage patterns for analytical and security purposes.",
+        "We may collect personal information such as name, email address, phone number, company name and other details voluntarily provided through contact forms, inquiries, or business communications.",
+        "We may also collect non-personal information such as browser type, IP address, device information, pages visited and usage patterns for analytical and security purposes.",
       ],
     },
     {
       heading: "Use of Information",
       body: [
-        "Information collected by Cloud9Space may be used to respond to inquiries, provide services, improve our website, communicate updates, ensure security, and comply with legal obligations.",
+        "Information collected by Cloud9Space may be used to respond to inquiries, provide services, improve our website, communicate updates, ensure security and comply with legal obligations.",
       ],
     },
     {
       heading: "Cookies and Tracking Technologies",
       body: [
-        "This website may use cookies or similar technologies to enhance user experience, analyze traffic, and improve functionality. You may choose to disable cookies through your browser settings; however, certain features of the website may not function properly.",
+        "This website may use cookies or similar technologies to enhance user experience, analyze traffic and improve functionality. You may choose to disable cookies through your browser settings; however, certain features of the website may not function properly.",
       ],
     },
     {
@@ -80,7 +80,7 @@ export const terms: LegalDoc = {
     {
       heading: "Terms of Use",
       body: [
-        "By accessing this website (“Website”), you acknowledge that you have read, understood, and accepted these Terms of Use governing your use of this Website. If you do not agree to these terms and conditions, you are requested not to access the Website or download any materials from it.",
+        "By accessing this website (“Website”), you acknowledge that you have read, understood and accepted these Terms of Use governing your use of this Website. If you do not agree to these terms and conditions, you are requested not to access the Website or download any materials from it.",
         "Your continued use of or access to the Website, or downloading any materials available on the Website, will be deemed as your acceptance of these Terms of Use. Cloud9Space reserves the right to modify, change, or alter the contents of this Website, including these Terms of Use, at any time without prior notice.",
         "Cloud9Space does not represent that the contents or materials available on this Website are appropriate or available for use in all locations. Accessing the Website from territories where its contents are illegal is prohibited. You are responsible for compliance with all applicable local laws.",
       ],
@@ -88,8 +88,8 @@ export const terms: LegalDoc = {
     {
       heading: "Right to Use",
       body: [
-        "Cloud9Space grants you a non-exclusive, non-transferable, and limited right to access, use, and display this Website and the materials available on it solely for personal and informational purposes.",
-        "Permission to use documents such as white papers, press releases, and other publications available for download from this Website is granted, provided that:",
+        "Cloud9Space grants you a non-exclusive, non-transferable and limited right to access, use and display this Website and the materials available on it solely for personal and informational purposes.",
+        "Permission to use documents such as white papers, press releases and other publications available for download from this Website is granted, provided that:",
         [
           "Cloud9Space’s copyright notice appears on all copies of the documents.",
           "Use of such documents is for informational and non-commercial purposes only and will not be copied, posted on any network computer, or broadcast in any media.",
@@ -102,7 +102,7 @@ export const terms: LegalDoc = {
     {
       heading: "Intellectual Property Rights",
       body: [
-        "This Website, including its design, layout, source code, and content, is the exclusive property of Cloud9Space and is protected by copyright laws. No express or implied rights are granted.",
+        "This Website, including its design, layout, source code and content, is the exclusive property of Cloud9Space and is protected by copyright laws. No express or implied rights are granted.",
       ],
     },
     {
@@ -126,7 +126,7 @@ export const terms: LegalDoc = {
     {
       heading: "Data Privacy",
       body: [
-        "Cloud9Space processes personal information in accordance with its Privacy Policy, which explains how data is collected, used, and protected.",
+        "Cloud9Space processes personal information in accordance with its Privacy Policy, which explains how data is collected, used and protected.",
       ],
     },
     {
