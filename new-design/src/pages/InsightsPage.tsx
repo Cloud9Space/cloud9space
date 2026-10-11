@@ -23,7 +23,7 @@ const Tags = ({ post }: { post: Post }) => (
   </ul>
 );
 
-/** Wide card, used when there is a single post. */
+/** Wide card for the lead post when the count is odd, so the grid below stays even. */
 const FeaturedCard = ({ post }: { post: Post }) => (
   <Link to={post.path} className="panel group grid overflow-hidden p-2 transition duration-300 hover:-translate-y-1 lg:grid-cols-2">
     <div className="overflow-hidden rounded-2xl border border-border bg-white">
@@ -76,9 +76,9 @@ const PostCard = ({ post }: { post: Post }) => (
 );
 
 const InsightsPage = () => {
-  // One post gets the wide card; two or more sit in an even grid.
-  const featured = posts.length === 1 ? posts[0] : undefined;
-  const rest = featured ? [] : posts;
+  // An odd count leads with a wide card so the two-column grid below never has a lone card.
+  const featured = posts.length % 2 === 1 ? posts[0] : undefined;
+  const rest = featured ? posts.slice(1) : posts;
   return (
     <>
       <Seo path="/insights" />
@@ -95,7 +95,7 @@ const InsightsPage = () => {
           </Reveal>
         )}
         {rest.length > 0 && (
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className={`grid gap-6 md:grid-cols-2 ${featured ? "mt-6" : ""}`}>
             {rest.map((post, i) => (
               <Reveal as="li" key={post.slug} delay={(i % 2) * 70}>
                 <PostCard post={post} />

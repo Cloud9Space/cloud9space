@@ -38,8 +38,8 @@ export const company = {
     linkedin: "https://www.linkedin.com/company/cloud9space/",
     instagram: "https://www.instagram.com/cloud9space_/",
   },
-  // TODO(content): replace with a dedicated careers inbox or ATS link if one exists.
-  careersHref: "mailto:contact@cloud9space.com?subject=Careers%20at%20Cloud9Space",
+  hrEmail: "hr@cloud9space.com",
+  careersHref: "mailto:hr@cloud9space.com?subject=Job%20application%3A%20%5BRole%5D",
   jobsHref: "https://www.linkedin.com/company/cloud9space/jobs/",
   formEndpoint: "https://formspree.io/f/mbjnpeeb",
 };

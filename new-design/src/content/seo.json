@@ -130,13 +130,60 @@
         "inLanguage": "en"
       }
     },
+    "/insights/offline-first-field-data-apps": {
+      "title": "Designing offline-first apps for field data collection | Cloud9Space",
+      "description": "Why field apps lose data in basements and villages, and the five design choices behind an offline-first app that never does: platform, local storage, sync, maps and real-world failure modes.",
+      "type": "article",
+      "image": "/insights/offline-first-field-data-apps/images/offline-first-architecture.png",
+      "imageWidth": 2400,
+      "imageHeight": 1220,
+      "imageAlt": "Offline-first architecture: the app works against a database on the phone, and a sync worker sends changes to the cloud when signal returns.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Designing offline-first apps for field data collection",
+        "description": "Why field apps lose data in basements and villages, and the five design choices behind an offline-first app that never does: platform, local storage, sync, maps and real-world failure modes.",
+        "datePublished": "2026-10-06",
+        "dateModified": "2026-10-06",
+        "author": {
+          "@type": "Person",
+          "name": "Sarang Joshi",
+          "jobTitle": "Software Engineer (Full Stack)",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/offline-first-field-data-apps/images/offline-first-architecture.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/offline-first-field-data-apps"
+        },
+        "url": "https://cloud9space.com/insights/offline-first-field-data-apps",
+        "keywords": [
+          "Offline-first",
+          "Mobile apps",
+          "Field data collection",
+          "Sync"
+        ],
+        "inLanguage": "en"
+      }
+    },
     "/about": {
       "title": "About Cloud9Space | AI, Data & Geospatial Engineering Company",
       "description": "Cloud9Space Innovations Private Limited is a Pune-based engineering company, founded in 2023, combining AI, data engineering, geospatial intelligence and software engineering."
     },
     "/careers": {
       "title": "Careers | Cloud9Space",
-      "description": "Build production AI, data, GIS and cloud systems with a small, senior-leaning engineering team in Pune."
+      "description": "Build production AI, data, GIS and cloud systems with a small engineering team in Pune. Send your CV to hr@cloud9space.com."
     },
     "/contact": {
       "title": "Contact | Cloud9Space",

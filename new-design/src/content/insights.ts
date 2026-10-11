@@ -16,9 +16,7 @@ export type Author = {
 export const authors: Record<string, Author> = {
   "Gaurav Niturkar": { name: "Gaurav Niturkar", role: "Senior Software Engineer, Cloud9Space" },
   "Shravani Kulkarni": { name: "Shravani Kulkarni", role: "Software Engineer (Full Stack), Cloud9Space" },
-  // TODO(content): role, photo and bio needed before these authors publish.
-  Sarang: { name: "Sarang" },
-  "Cloud9Space Engineering": { name: "Cloud9Space Engineering" },
+  "Sarang Joshi": { name: "Sarang Joshi", role: "Software Engineer (Full Stack), Cloud9Space" },
 };
 
 export type Post = {
