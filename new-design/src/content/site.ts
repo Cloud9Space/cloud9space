@@ -9,7 +9,7 @@
 import eyLogo from "@/assets/clients/ey.png";
 import kentrixLogo from "@/assets/clients/kentrix.png";
 import terraHelixLogo from "@/assets/clients/terra-helix.png";
-import atharvSPhoto from "@/assets/team/atharv-s.webp";
+import atharvSirsalkarPhoto from "@/assets/team/atharv-sirsalkar.webp";
 import atharvaJoshiPhoto from "@/assets/team/atharva-joshi.webp";
 import carinaJosePhoto from "@/assets/team/carina-jose.webp";
 import gauravNiturkarPhoto from "@/assets/team/gaurav-niturkar.webp";
@@ -714,7 +714,7 @@ export type TeamMember = {
 // Photos are 600x800 crops with the face at the same size and height; keep new ones to that framing.
 // Shubham sits in the middle, where the row is highest.
 export const team: TeamMember[] = [
-  { name: "Atharv Sirsalkar", role: "Software Engineer - Full Stack", photo: atharvSPhoto },
+  { name: "Atharv Sirsalkar", role: "Software Engineer - Full Stack", photo: atharvSirsalkarPhoto },
   { name: "Atharva Joshi", role: "Software Engineer - Full Stack", photo: atharvaJoshiPhoto },
   { name: "Gaurav Niturkar", role: "Senior Software Engineer", photo: gauravNiturkarPhoto },
   { name: "Gaurav Panchi", role: "Senior Quality Analyst", photo: gauravPanchiPhoto },
