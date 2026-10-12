@@ -14,7 +14,7 @@ const facts = [
 export const Hero = () => (
   <section className="tone-ink relative overflow-hidden bg-background pt-[72px]" aria-labelledby="hero-title">
     <div aria-hidden className="absolute inset-0 bg-grid" />
-    <div className="container relative grid items-center gap-10 pb-14 pt-8 lg:min-h-[calc(100svh-72px)] lg:grid-cols-12 lg:items-start lg:pb-16 lg:pt-12">
+    <div className="container relative grid items-center gap-10 pb-12 pt-8 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-10 lg:pb-14 lg:pt-12">
       <div className="flex flex-col lg:col-span-6">
         {/* <p className="eyebrow self-start">AI · Data · Geospatial · Engineering</p> */}
         <h1 id="hero-title" className="t-display">
@@ -32,8 +32,17 @@ export const Hero = () => (
             Talk to Our Team
           </Link>
         </div>
+      </div>
 
-        <div className="relative mt-12 max-w-xl">
+      <div className="lg:col-span-6">
+        <Parallax distance={24}>
+          <HeroVisual />
+        </Parallax>
+      </div>
+
+      {/* Facts and capabilities share one row on desktop, at the same height. */}
+      <div className="grid gap-6 lg:col-span-12 lg:grid-cols-2">
+        <div className="relative">
           <Link
             to="/about"
             aria-label="About Cloud9Space"
@@ -42,7 +51,7 @@ export const Hero = () => (
           >
             <ArrowUpRight size={18} aria-hidden />
           </Link>
-          <dl className="glass grid grid-cols-3 gap-3 !rounded-3xl p-4 sm:gap-4 sm:p-7">
+          <dl className="glass grid h-full grid-cols-3 items-center gap-3 !rounded-3xl p-4 sm:gap-4 sm:p-7">
             {facts.map((f) => (
               <div key={f.label}>
                 <dt className="sr-only">{f.label}</dt>
@@ -54,13 +63,7 @@ export const Hero = () => (
             ))}
           </dl>
         </div>
-      </div>
-
-      <div className="flex flex-col gap-6 lg:col-span-6">
-        <Parallax distance={24}>
-          <HeroVisual />
-        </Parallax>
-        <div className="glass p-5">
+        <div className="glass flex h-full flex-col justify-center !rounded-3xl p-5 sm:p-7">
           <p className="text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">What we engineer</p>
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Capabilities">
             {capabilities.map((c) => (

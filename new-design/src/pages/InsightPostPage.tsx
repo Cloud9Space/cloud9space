@@ -29,7 +29,7 @@ const InsightPostPage = () => {
       <header className="tone-ink relative overflow-hidden bg-background pt-[72px]" aria-labelledby="page-title">
         <div aria-hidden className="absolute inset-0 bg-grid" />
         <div className="container relative grid py-12 sm:py-14 lg:grid-cols-12 lg:py-16">
-          <div className="lg:col-span-10 xl:col-start-2">
+          <div className="lg:col-span-10">
             <nav aria-label="Breadcrumb" className="t-meta mb-8">
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
@@ -90,12 +90,12 @@ const InsightPostPage = () => {
 
       <div className="container py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
-          <article className="min-w-0 lg:col-span-8 xl:col-span-7 xl:col-start-2" aria-labelledby="page-title">
-            <div className="max-w-[58ch]">
+          <article className="min-w-0 lg:col-span-9" aria-labelledby="page-title">
+            <div className="max-w-[80ch]">
               <ArticleBody post={post} />
             </div>
 
-            <footer className="mt-14 max-w-[58ch] border-t border-border pt-8">
+            <footer className="mt-14 max-w-[80ch] border-t border-border pt-8">
               <div className="flex items-center gap-4">
                 <span
                   aria-hidden
