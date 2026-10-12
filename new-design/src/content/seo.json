@@ -1,0 +1,207 @@
+{
+  "siteUrl": "https://cloud9space.com",
+  "siteName": "Cloud9Space",
+  "ogImage": "/og-image.png",
+  "routes": {
+    "/": {
+      "title": "Cloud9Space | AI, Data & Geospatial Engineering",
+      "description": "Cloud9Space designs and builds AI applications, data platforms and geospatial systems for enterprises, consulting firms and growing technology companies. Based in Pune, India."
+    },
+    "/ai": {
+      "title": "AI & Intelligent Systems | Cloud9Space",
+      "description": "Production AI engineering: LLM and RAG applications, AI agents, computer vision, predictive models, evaluation and MLOps, built on sound data foundations."
+    },
+    "/data-engineering": {
+      "title": "Data Engineering & Analytics | Cloud9Space",
+      "description": "Data platforms, ETL/ELT pipelines, lakehouses, warehouses, data quality and AI-ready data architecture, engineered for reliability and cost control."
+    },
+    "/geospatial": {
+      "title": "Geospatial Intelligence & GIS Engineering | Cloud9Space",
+      "description": "GIS platforms, satellite and remote-sensing pipelines, raster and vector analytics, GeoAI, spatial APIs and large-scale map rendering."
+    },
+    "/software-engineering": {
+      "title": "Software & Platform Engineering | Cloud9Space",
+      "description": "Web applications, enterprise platforms, APIs, microservices, modernisation, QA automation and DevOps, engineered for production."
+    },
+    "/cloud": {
+      "title": "Cloud Engineering on AWS, Azure & GCP | Cloud9Space",
+      "description": "Cloud-native architecture, serverless, infrastructure as code, CI/CD and observability across AWS, Azure and Google Cloud."
+    },
+    "/industries": {
+      "title": "Industries | Cloud9Space",
+      "description": "Where Cloud9Space has delivered: agriculture and agritech, consumer goods and retail, financial risk, real estate, public health programmes and technology and consulting firms."
+    },
+    "/insights": {
+      "title": "Insights | Cloud9Space",
+      "description": "Practical writing from Cloud9Space engineers on the systems we build: AI, data platforms, geospatial and software engineering."
+    },
+    "/insights/schema-vs-database-per-tenant-postgresql": {
+      "title": "Schema-per-tenant vs database-per-tenant: where should each customer's data live? | Cloud9Space",
+      "description": "A practical guide to multi-tenant PostgreSQL: how schema-per-tenant and database-per-tenant differ on isolation, cost, migrations, connections and recovery, and how to choose.",
+      "type": "article",
+      "image": "/insights/schema-vs-database-per-tenant-postgresql/images/schema-per-tenant.png",
+      "imageWidth": 2400,
+      "imageHeight": 1140,
+      "imageAlt": "One application routing two customers, Acme and Bloom, to separate schemas inside one PostgreSQL database.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Schema-per-tenant vs database-per-tenant: where should each customer's data live?",
+        "description": "A practical guide to multi-tenant PostgreSQL: how schema-per-tenant and database-per-tenant differ on isolation, cost, migrations, connections and recovery, and how to choose.",
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11",
+        "author": {
+          "@type": "Person",
+          "name": "Gaurav Niturkar",
+          "jobTitle": "Senior Software Engineer",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql/images/schema-per-tenant.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql"
+        },
+        "url": "https://cloud9space.com/insights/schema-vs-database-per-tenant-postgresql",
+        "keywords": [
+          "Multi-tenancy",
+          "PostgreSQL",
+          "SaaS architecture",
+          "Data isolation"
+        ],
+        "inLanguage": "en"
+      }
+    },
+    "/insights/vector-tiles-vs-wms-web-maps": {
+      "title": "Vector tiles vs WMS: choosing the right architecture for web maps | Cloud9Space",
+      "description": "Why some web maps feel slow and blurry while others glide. A plain-language comparison of WMS and vector tiles on freshness, feel, styling, data type and security, with a simple rule for choosing.",
+      "type": "article",
+      "image": "/insights/vector-tiles-vs-wms-web-maps/images/wms-vs-vector-tiles-flow.png",
+      "imageWidth": 2400,
+      "imageHeight": 1300,
+      "imageAlt": "Side-by-side flow: with WMS the server draws a new image on every zoom; with vector tiles the server hands out ready tiles and the browser draws the map.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vector tiles vs WMS: choosing the right architecture for web maps",
+        "description": "Why some web maps feel slow and blurry while others glide. A plain-language comparison of WMS and vector tiles on freshness, feel, styling, data type and security, with a simple rule for choosing.",
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11",
+        "author": {
+          "@type": "Person",
+          "name": "Shravani Kulkarni",
+          "jobTitle": "Software Engineer (Full Stack)",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps/images/wms-vs-vector-tiles-flow.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps"
+        },
+        "url": "https://cloud9space.com/insights/vector-tiles-vs-wms-web-maps",
+        "keywords": [
+          "Web maps",
+          "GIS",
+          "Vector tiles",
+          "WMS",
+          "PostGIS"
+        ],
+        "inLanguage": "en"
+      }
+    },
+    "/insights/offline-first-field-data-apps": {
+      "title": "Designing offline-first apps for field data collection | Cloud9Space",
+      "description": "Why field apps lose data in basements and villages, and the five design choices behind an offline-first app that never does: platform, local storage, sync, maps and real-world failure modes.",
+      "type": "article",
+      "image": "/insights/offline-first-field-data-apps/images/offline-first-architecture.png",
+      "imageWidth": 2400,
+      "imageHeight": 1220,
+      "imageAlt": "Offline-first architecture: the app works against a database on the phone, and a sync worker sends changes to the cloud when signal returns.",
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Designing offline-first apps for field data collection",
+        "description": "Why field apps lose data in basements and villages, and the five design choices behind an offline-first app that never does: platform, local storage, sync, maps and real-world failure modes.",
+        "datePublished": "2026-10-06",
+        "dateModified": "2026-10-06",
+        "author": {
+          "@type": "Person",
+          "name": "Sarang Joshi",
+          "jobTitle": "Software Engineer (Full Stack)",
+          "worksFor": {
+            "@id": "https://cloud9space.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://cloud9space.com/#organization",
+          "name": "Cloud9Space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud9space.com/favicon.png"
+          }
+        },
+        "image": "https://cloud9space.com/insights/offline-first-field-data-apps/images/offline-first-architecture.png",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloud9space.com/insights/offline-first-field-data-apps"
+        },
+        "url": "https://cloud9space.com/insights/offline-first-field-data-apps",
+        "keywords": [
+          "Offline-first",
+          "Mobile apps",
+          "Field data collection",
+          "Sync"
+        ],
+        "inLanguage": "en"
+      }
+    },
+    "/about": {
+      "title": "About Cloud9Space | AI, Data & Geospatial Engineering Company",
+      "description": "Cloud9Space Innovations Private Limited is a Pune-based engineering company, founded in 2023, combining AI, data engineering, geospatial intelligence and software engineering."
+    },
+    "/careers": {
+      "title": "Careers | Cloud9Space",
+      "description": "Build production AI, data, GIS and cloud systems with a small engineering team in Pune. Send your CV to hr@cloud9space.com."
+    },
+    "/contact": {
+      "title": "Contact | Cloud9Space",
+      "description": "Talk to Cloud9Space about an AI, data, geospatial or software engineering problem. Office in Baner, Pune."
+    },
+    "/privacy": {
+      "title": "Privacy Policy | Cloud9Space",
+      "description": "How Cloud9Space collects, uses and protects personal information."
+    },
+    "/terms": {
+      "title": "Terms of Use | Cloud9Space",
+      "description": "Terms governing the use of the Cloud9Space website."
+    }
+  },
+  "hiddenRoutes": {
+    "/work": {
+      "title": "Client Success | Cloud9Space",
+      "description": "Selected engagements: field intelligence, route-to-market analytics, GIS microplanning, terrain analytics and agri-risk platforms. The challenge, the solution and the architecture behind each."
+    }
+  }
+}

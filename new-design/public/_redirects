@@ -1,2 +1,19 @@
-/*    /index.html   200
+# Legacy static-site URLs
+/index.html                                     /                       301
+/about.html                                     /about                  301
+/services.html                                  /                       301
+/contact.html                                   /contact                301
+/project.html                                   /                       301
+/project-details.html                           /                       301
+/our-products.html                              /                       301
+/HRMS.html                                      /                       301
+/geo-spatial-microplanning-project-details.html /                       301
+/real_estate.html                               /                       301
+/privacy-notice.html                            /privacy                301
+/terms-of-use.html                              /terms                  301
 
+# Client Success is hidden for now; restore this when /work is re-enabled.
+/work                                           /                       301
+
+# No SPA catch-all: every route is prerendered to its own HTML file (scripts/prerender.mjs),
+# so unknown URLs get 404.html with a real 404 status instead of a "soft 404".

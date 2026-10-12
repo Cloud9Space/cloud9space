@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 610" width="1200" height="610" role="img" aria-label="Offline-first architecture. On the phone, app screens read and write a local database; changes go to an outbox queue and photos to a photo queue; a sync worker sends both to the company server when signal returns. In the cloud, the company server checks the data and stores it in the server database and file storage.">
+<style>
+.t{font:600 28px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1C1C1A}
+.s{font:400 17px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#5F5E5A}
+.h{font:600 19px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1C1C1A}
+.b{font:400 15.5px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#5F5E5A}
+.m{font:400 16px "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#3A3A37}
+.k{font:600 12.5px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#7A7873;letter-spacing:.12em}
+.l{font:500 14px Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#5F5E5A}
+.box{fill:#FFFFFF;stroke:#D6D3CC;stroke-width:1.5}
+.acc{fill:#E9F0FB;stroke:#2F6FDB;stroke-width:2}
+.pan{fill:#F3F1EC;stroke:#D6D3CC;stroke-width:1.5}
+.ln{stroke:#9C9A94;stroke-width:1.75;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9C9A94"/></marker></defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text class="t" x="40" y="56">The screen talks only to the phone. Sync talks to the cloud.</text>
+<rect class="pan" x="40" y="92" width="750" height="488" rx="16"/>
+<text class="h" x="68" y="130">On the phone: works with no signal</text>
+<rect class="box" x="70" y="160" width="310" height="80" rx="12"/><text class="h" x="92" y="194">App screens</text><text class="b" x="92" y="220">forms, lists, map</text>
+<rect class="box" x="450" y="160" width="310" height="80" rx="12"/><text class="h" x="472" y="194">Offline map area</text><text class="b" x="472" y="220">downloaded tiles</text>
+<rect class="acc" x="70" y="310" width="310" height="80" rx="12"/><text class="h" x="92" y="344">Local database</text><text class="b" x="92" y="370">the phone's filing cabinet</text>
+<rect class="box" x="450" y="310" width="310" height="80" rx="12"/><text class="h" x="472" y="344">Outbox queue</text><text class="b" x="472" y="370">changes waiting to send</text>
+<rect class="box" x="70" y="460" width="310" height="80" rx="12"/><text class="h" x="92" y="494">Photo queue</text><text class="b" x="92" y="520">shrunk, sent separately</text>
+<rect class="box" x="450" y="460" width="310" height="80" rx="12"/><text class="h" x="472" y="494">Sync worker</text><text class="b" x="472" y="520">sends when signal returns</text>
+<path class="ln" d="M450 200H384" marker-end="url(#a)"/>
+<path class="ln" d="M225 244V306" marker-start="url(#a)" marker-end="url(#a)"/>
+<text class="l" x="240" y="280">read and write</text>
+<path class="ln" d="M380 350H446" marker-end="url(#a)"/>
+<path class="ln" d="M605 390V456" marker-end="url(#a)"/>
+<path class="ln" d="M380 500H446" marker-end="url(#a)"/>
+<rect x="840" y="92" width="320" height="488" rx="16" fill="#FFFFFF" stroke="#BDBAB3" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text class="h" x="866" y="130">In the cloud</text>
+<rect class="box" x="862" y="160" width="276" height="80" rx="12"/><text class="h" x="884" y="194">File storage</text><text class="b" x="884" y="220">photos and documents</text>
+<rect class="box" x="862" y="310" width="276" height="80" rx="12"/><text class="h" x="884" y="344">Server database</text><text class="b" x="884" y="370">everyone's data together</text>
+<rect class="box" x="862" y="460" width="276" height="80" rx="12"/><text class="h" x="884" y="494">Company server</text><text class="b" x="884" y="520">checks every record</text>
+<path class="ln" d="M764 500H858" marker-start="url(#a)" marker-end="url(#a)"/>
+<text class="l" x="811" y="488" text-anchor="middle">online</text>
+<path class="ln" d="M1000 460V394" marker-end="url(#a)"/>
+<path class="ln" d="M1138 486H1150V214H1142" marker-end="url(#a)"/>
+</svg>
