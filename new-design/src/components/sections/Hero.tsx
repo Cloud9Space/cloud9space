@@ -42,12 +42,12 @@ export const Hero = () => (
           >
             <ArrowUpRight size={18} aria-hidden />
           </Link>
-          <dl className="glass grid grid-cols-3 gap-4 !rounded-3xl p-5 sm:p-7">
+          <dl className="glass grid grid-cols-3 gap-3 !rounded-3xl p-4 sm:gap-4 sm:p-7">
             {facts.map((f) => (
               <div key={f.label}>
                 <dt className="sr-only">{f.label}</dt>
                 <dd className="font-heading text-3xl font-medium tracking-tight text-foreground sm:text-[2.6rem]">{f.value}</dd>
-                <dd className="mt-2 text-[0.7rem] font-medium uppercase tracking-[0.08em] text-muted-foreground sm:text-xs">
+                <dd className="mt-2 hyphens-auto text-[0.62rem] font-medium uppercase tracking-[0.04em] text-muted-foreground min-[400px]:text-[0.7rem] min-[400px]:tracking-[0.08em] sm:text-xs">
                   {f.label}
                 </dd>
               </div>

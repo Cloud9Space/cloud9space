@@ -251,10 +251,10 @@ export const NeuralField = () => {
         {STAGES.map((s, l) => (
           <li
             key={s.label}
-            className="absolute -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground sm:text-xs"
+            className="absolute -translate-x-1/2 whitespace-nowrap text-[0.56rem] font-medium uppercase tracking-[0.02em] text-muted-foreground min-[400px]:text-[0.65rem] min-[400px]:tracking-[0.12em] sm:text-xs"
             style={{ left: `${(X0 + (X_SPAN * l) / (LAYERS.length - 1)) * 100}%` }}
           >
-            <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full align-middle" style={{ background: `hsl(var(--${s.tone}))` }} />
+            <span className="mr-1 inline-block h-1 w-1 rounded-full align-middle min-[400px]:mr-1.5 min-[400px]:h-1.5 min-[400px]:w-1.5" style={{ background: `hsl(var(--${s.tone}))` }} />
             {s.label}
           </li>
         ))}

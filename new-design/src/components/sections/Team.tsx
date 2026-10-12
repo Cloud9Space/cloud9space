@@ -141,7 +141,7 @@ export const TeamSection = () => {
         role="region"
         aria-roledescription="carousel"
         aria-label="Team members"
-        className="relative mt-12 h-[360px] sm:h-[400px]"
+        className="relative mt-8 h-[300px] sm:mt-12 sm:h-[400px]"
       >
         <ul>
           {team.map((m, i) => {
@@ -152,7 +152,7 @@ export const TeamSection = () => {
             const wrapped = prev.length > 0 && Math.abs(offset - prev[i]) > 1;
             return (
               <motion.li
-                key={`${m.role}-${i}`}
+                key={`${m.name}-${i}`}
                 className="absolute left-1/2 top-6"
                 style={{ width: cardW, marginLeft: -cardW / 2, zIndex: isOn ? 20 : 10 - Math.abs(offset) }}
                 initial={false}
@@ -203,7 +203,9 @@ export const TeamSection = () => {
                     >
                       {m.name}
                     </p>
-                    <p className={cn("text-xs", m.photo ? "text-white/75" : "text-muted-foreground")}>{m.role}</p>
+                    {m.role && (
+                      <p className={cn("text-xs", m.photo ? "text-white/75" : "text-muted-foreground")}>{m.role}</p>
+                    )}
                   </figcaption>
                 </figure>
               </motion.li>

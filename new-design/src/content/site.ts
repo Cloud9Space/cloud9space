@@ -9,7 +9,18 @@
 import eyLogo from "@/assets/clients/ey.png";
 import kentrixLogo from "@/assets/clients/kentrix.png";
 import terraHelixLogo from "@/assets/clients/terra-helix.png";
-import softwareEngineerPhoto from "@/assets/team/software-engineer.webp";
+import atharvSPhoto from "@/assets/team/atharv-s.webp";
+import atharvaJoshiPhoto from "@/assets/team/atharva-joshi.webp";
+import carinaJosePhoto from "@/assets/team/carina-jose.webp";
+import gauravNiturkarPhoto from "@/assets/team/gaurav-niturkar.webp";
+import gauravPanchiPhoto from "@/assets/team/gaurav-panchi.webp";
+import sakshiDeshpandePhoto from "@/assets/team/sakshi-deshpande.webp";
+import sakshiJainPhoto from "@/assets/team/sakshi-jain.webp";
+import sarangPhoto from "@/assets/team/sarang.webp";
+import shivaniPhoto from "@/assets/team/shivani.webp";
+import shravaniPhoto from "@/assets/team/shravani.webp";
+import shreyashPhoto from "@/assets/team/shreyash.webp";
+import shubhamPhoto from "@/assets/team/shubham.webp";
 
 /* ------------------------------------------------------------------ */
 /* Company                                                             */
@@ -700,17 +711,21 @@ export type TeamMember = {
   placeholder?: boolean;
 };
 
-// TODO(content): every `placeholder` card must be replaced with a real name, role and photo
-// (portrait, roughly 3:4) before launch. Shubham sits in the middle, where the row is highest.
+// Photos are 600x800 crops with the face at the same size and height; keep new ones to that framing.
+// Shubham sits in the middle, where the row is highest.
 export const team: TeamMember[] = [
-  { name: "Team member", role: "AI / ML Engineering", placeholder: true },
-  { name: "Team member", role: "Data Engineering", placeholder: true },
-  { name: "Team member", role: "GIS Engineering", placeholder: true },
-  { name: "Shubham Shewdikar", role: "Founder & CEO", initials: "SS" },
-  // TODO(content): add this engineer's name.
-  { name: "Team member", role: "Software Engineering", photo: softwareEngineerPhoto },
-  { name: "Team member", role: "Cloud & DevOps", placeholder: true },
-  { name: "Team member", role: "Quality Engineering", placeholder: true },
+  { name: "Atharv Sirsalkar", role: "Software Engineer - Full Stack", photo: atharvSPhoto },
+  { name: "Atharva Joshi", role: "Software Engineer - Full Stack", photo: atharvaJoshiPhoto },
+  { name: "Gaurav Niturkar", role: "Senior Software Engineer", photo: gauravNiturkarPhoto },
+  { name: "Gaurav Panchi", role: "Senior Quality Analyst", photo: gauravPanchiPhoto },
+  { name: "Sakshi Jain", role: "Software Engineer - Full Stack", photo: sakshiJainPhoto },
+  { name: "Carina Jose", role: "Associate Product Manager", photo: carinaJosePhoto },
+  { name: "Shubham Shewdikar", role: "Director & Founder", initials: "SS", photo: shubhamPhoto },
+  { name: "Sakshi Deshpande", role: "Senior Software Engineer - Full Stack", photo: sakshiDeshpandePhoto },
+  { name: "Sarang Joshi", role: "Software Engineer - Full Stack", photo: sarangPhoto },
+  { name: "Shivani Lad", role: "Software Engineer - Full Stack", photo: shivaniPhoto },
+  { name: "Shravani Kulkarni", role: "Software Engineer - Full Stack", photo: shravaniPhoto },
+  { name: "Shreyash Shewadikar", role: "Senior Software Engineer - Full Stack", photo: shreyashPhoto },
 ];
 
 /* ------------------------------------------------------------------ */
