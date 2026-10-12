@@ -28,13 +28,7 @@
     <meta name="twitter:description" content="Cloud9Space designs and builds AI applications, data platforms and geospatial systems for enterprises, consulting firms and growing technology companies. Based in Pune, India." />
     <meta name="twitter:image" content="https://cloud9space.com/og-image.png" />
 
-    <!-- Fonts: Manrope (headings), Inter (body), IBM Plex Mono (technical labels) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
-    />
+    <!-- Fonts (Manrope headings, Inter body, IBM Plex Mono labels) are self-hosted via @fontsource in src/main.tsx. -->
 
     <script type="application/ld+json">
       {
@@ -80,23 +74,11 @@
       }
     </script>
 
-    <!-- Google Analytics (loaded async, after first paint) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J54YYJCPD8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J54YYJCPD8');
-    </script>
+    <!-- Google Analytics is loaded from src/lib/analytics.ts once the page has finished loading. -->
   </head>
 
   <body>
     <div id="root"></div>
-    <noscript>
-      <p style="font-family: system-ui, sans-serif; padding: 2rem">
-        Cloud9Space | AI, Data &amp; Geospatial Engineering. Contact us at contact@cloud9space.com.
-      </p>
-    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

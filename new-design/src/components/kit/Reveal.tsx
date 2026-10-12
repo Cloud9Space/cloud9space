@@ -13,11 +13,14 @@ type State = "below" | "in" | "above";
 /**
  * Eases content in as it enters the viewport and back out as it leaves, in the direction of travel:
  * it rises into place when scrolling down and settles down into place when scrolling back up.
- * CSS-only animation; no layout shift.
+ * CSS-only animation; no layout shift. Content that is on screen at load is shown without animating.
  */
 export const Reveal = ({ children, as = "div", delay = 0, className }: RevealProps) => {
   const ref = useRef<HTMLElement>(null);
-  const [state, setState] = useState<State>("below");
+  // Start visible, so prerendered content already on screen paints immediately (no wait for JavaScript)
+  // and pages read fine without it. The observer's first callback hides off-screen items before they
+  // are scrolled to, so they still animate in.
+  const [state, setState] = useState<State>("in");
 
   useEffect(() => {
     const el = ref.current;

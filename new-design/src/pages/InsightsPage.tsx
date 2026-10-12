@@ -26,10 +26,11 @@ const Tags = ({ post }: { post: Post }) => (
 /** Wide card for the lead post when the count is odd, so the grid below stays even. */
 const FeaturedCard = ({ post }: { post: Post }) => (
   <Link to={post.path} className="panel group grid overflow-hidden p-2 transition duration-300 hover:-translate-y-1 lg:grid-cols-2">
-    <div className="overflow-hidden rounded-2xl border border-border bg-white">
+    <div className="aspect-[2/1] overflow-hidden rounded-2xl border border-border bg-white lg:self-center">
       <img
-        src={post.coverImage}
+        src={post.coverDisplay}
         alt={post.coverAlt}
+        {...{ fetchpriority: "high" }}
         className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
     </div>
@@ -53,7 +54,7 @@ const PostCard = ({ post }: { post: Post }) => (
   <Link to={post.path} className="panel group flex h-full flex-col overflow-hidden p-2 transition duration-300 hover:-translate-y-1">
     <div className="aspect-[2/1] overflow-hidden rounded-2xl border border-border bg-white">
       <img
-        src={post.coverImage}
+        src={post.coverDisplay}
         alt={post.coverAlt}
         loading="lazy"
         className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"

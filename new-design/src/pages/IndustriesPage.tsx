@@ -14,7 +14,7 @@ const IndustriesPage = () => (
       crumb="Industries"
       eyebrow="Industries"
       title="Sectors where location, data and AI decide outcomes."
-      lead="We focus on industries where Cloud9Space has delivered working systems. Each one below links to the engagement behind it."
+      lead="We focus on industries where Cloud9Space has delivered working systems."
     />
     <Section labelledBy="ind-list">
       <h2 id="ind-list" className="sr-only">
@@ -31,19 +31,9 @@ const IndustriesPage = () => (
               <p className="t-meta text-accent">{String(i + 1).padStart(2, "0")}</p>
               <h3 className="t-h2 mt-2 !text-[clamp(1.5rem,1.2rem+1vw,2rem)]">{ind.name}</h3>
             </div>
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-8 lg:max-w-3xl">
               <p className="t-lead !text-[1.05rem] text-foreground">{ind.summary}</p>
               <p className="t-body mt-3">{ind.detail}</p>
-            </div>
-            <div className="lg:col-span-3">
-              <p className="t-meta uppercase tracking-[0.12em]">Delivered</p>
-              <ul className="mt-3 space-y-2">
-                {ind.work.map((w) => (
-                  <li key={w} className="text-sm font-medium text-foreground">
-                    {w}
-                  </li>
-                ))}
-              </ul>
               {/* Client Success hidden for now
               {ind.caseIds.map((id) => (
                 <Link key={id} to={`/work#${id}`} className="link-arrow mt-4">

@@ -6,7 +6,7 @@ import { PageHero } from "@/components/kit/PageHero";
 import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 import { ConvergenceDiagram } from "@/components/visuals/ConvergenceDiagram";
-import { Credentials, LeaderCards } from "@/components/sections/CompanyLeadership";
+import { Credentials } from "@/components/sections/CompanyLeadership";
 import { Approach } from "@/components/sections/Approach";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { TeamSection } from "@/components/sections/Team";
@@ -75,17 +75,6 @@ const AboutPage = () => (
         <Reveal className="tone-ink ink-panel p-6 sm:p-10 lg:order-1 lg:col-span-6">
           <ConvergenceDiagram />
         </Reveal>
-      </div>
-    </Section>
-
-    <Section labelledBy="leaders-title">
-      <div className="grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <SectionHeader id="leaders-title" eyebrow="Leadership" title="Who leads the work." />
-        </div>
-        <div className="lg:col-span-8">
-          <LeaderCards />
-        </div>
       </div>
     </Section>
 

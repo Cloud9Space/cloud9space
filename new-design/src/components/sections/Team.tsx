@@ -49,10 +49,12 @@ const Portrait = ({ member, active }: { member: TeamMember; active: boolean }) =
 
 /** Card width tracks the viewport so the centred card and its neighbours fit on phones. */
 const useCardWidth = () => {
-  const get = () => (typeof window !== "undefined" && window.innerWidth < 640 ? 170 : 210);
-  const [width, setWidth] = useState(get);
+  const get = () => (window.innerWidth < 640 ? 170 : 210);
+  // Start at the desktop width so the build-time HTML and the first browser render agree; adjust after mount.
+  const [width, setWidth] = useState(210);
   useEffect(() => {
     const onResize = () => setWidth(get());
+    onResize();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);

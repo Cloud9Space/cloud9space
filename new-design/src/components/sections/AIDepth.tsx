@@ -1,24 +1,6 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 import { AIPipeline } from "@/components/visuals/AIPipeline";
-
-const stalls = [
-  {
-    problem: "The demo used a clean sample.",
-    answer: "We profile the real data first, including coverage, freshness and permissions and design retrieval and features around it.",
-  },
-  {
-    problem: "Nobody agreed what “good” looks like.",
-    answer: "Every AI feature gets an evaluation set and an acceptance bar agreed with the business before it ships.",
-  },
-  {
-    problem: "It worked once, then quietly drifted.",
-    answer: "Prompts and models are versioned, regression-tested in CI and monitored for quality and cost in production.",
-  },
-];
-
 
 export const AIDepth = () => (
   <Section labelledBy="ai-title">
@@ -26,21 +8,11 @@ export const AIDepth = () => (
         id="ai-title"
         eyebrow="AI engineering"
         title="From AI experiments to production systems."
+        className="max-w-none [&>p.t-lead]:max-w-3xl"
         lead="Calling a model API is the easy part. Useful AI depends on the data underneath it, the architecture around it, an honest way to measure it and the engineering to run it every day."
       />
 
-    <div className="tone-blue mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
-      {stalls.map((s, i) => (
-        <Reveal key={s.problem} delay={i * 80} className="bg-card p-6 sm:p-7">
-          <p className="t-meta uppercase tracking-[0.12em] text-destructive/90">Why AI stalls</p>
-          <p className="mt-2 font-heading text-lg font-semibold text-foreground">{s.problem}</p>
-          <p className="t-meta mt-6 uppercase tracking-[0.12em] text-accent">What we do</p>
-          <p className="t-body mt-2 text-sm">{s.answer}</p>
-        </Reveal>
-      ))}
-    </div>
-
-    <Reveal className="tone-blue ink-panel mt-6 p-6 sm:p-8">
+    <Reveal className="tone-blue ink-panel mt-12 p-6 sm:p-8">
       <div aria-hidden className="absolute inset-0 bg-grid" />
       <div className="relative">
         <AIPipeline />

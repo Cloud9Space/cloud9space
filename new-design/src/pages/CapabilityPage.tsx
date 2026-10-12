@@ -13,8 +13,8 @@ import { GeoLayers } from "@/components/visuals/GeoLayers";
 import { ArchitectureDiagram } from "@/components/visuals/ArchitectureDiagram";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
-/** Reference architecture shown on each capability page. */
-const reference: Record<CapabilitySlug, { title: string; visual: ReactNode }> = {
+/** Reference architecture shown on capability pages that have one. */
+const reference: Partial<Record<CapabilitySlug, { title: string; visual: ReactNode }>> = {
   ai: { title: "The production AI lifecycle", visual: <AIPipeline /> },
   geospatial: { title: "How spatial layers become decisions", visual: <div className="mx-auto max-w-3xl"><GeoLayers /></div> },
   data: {
@@ -30,32 +30,6 @@ const reference: Record<CapabilitySlug, { title: string; visual: ReactNode }> = 
       />
     ),
   },
-  software: {
-    title: "Reference application architecture",
-    visual: (
-      <ArchitectureDiagram
-        columns={[
-          { label: "Users", nodes: ["Web", "Mobile & field"] },
-          { label: "Experience", nodes: ["React / Next.js", "Offline sync"] },
-          { label: "Services", nodes: ["REST APIs", "Integrations (CRM, ERP)"] },
-          { label: "Data", nodes: ["PostgreSQL / PostGIS", "Object storage"] },
-        ]}
-      />
-    ),
-  },
-  cloud: {
-    title: "Reference delivery pipeline",
-    visual: (
-      <ArchitectureDiagram
-        columns={[
-          { label: "Code", nodes: ["Application repo", "Infrastructure as code"] },
-          { label: "Pipeline", nodes: ["Build & test", "Security checks"] },
-          { label: "Runtime", nodes: ["Serverless", "Containers", "Managed databases"] },
-          { label: "Operate", nodes: ["Logs & metrics", "Alerts", "Cost reports"] },
-        ]}
-      />
-    ),
-  },
 };
 
 const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
@@ -63,6 +37,7 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
   const path = cap.path as keyof typeof seo.routes;
   const related = cap.caseIds.map((id) => caseById[id]).filter(Boolean);
   const others = capabilities.filter((c) => c.slug !== slug);
+  const ref = reference[slug];
 
   const jsonLd = useMemo(
     () => ({
@@ -113,10 +88,12 @@ const CapabilityPage = ({ slug }: { slug: CapabilitySlug }) => {
         </ul>
       </Section>
 
-      <Section labelledBy="ref-title">
-        <SectionHeader id="ref-title" eyebrow="Architecture" title={reference[slug].title} />
-        <Reveal className="mt-12">{reference[slug].visual}</Reveal>
-      </Section>
+      {ref && (
+        <Section labelledBy="ref-title">
+          <SectionHeader id="ref-title" eyebrow="Architecture" title={ref.title} />
+          <Reveal className="mt-12">{ref.visual}</Reveal>
+        </Section>
+      )}
 
       <Section labelledBy="principles-title">
         <div className="grid gap-12 lg:grid-cols-12">

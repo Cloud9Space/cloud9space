@@ -28,8 +28,10 @@ export type Post = {
   author: Author;
   tags: string[];
   readingTime: number;
-  /** Absolute site path to the PNG cover (also the social image). */
+  /** Absolute site path to the PNG cover, used as the social image. */
   coverImage: string;
+  /** Lightweight cover for on-page cards: the matching SVG diagram when there is one, else the PNG. */
+  coverDisplay: string;
   coverAlt: string;
   body: string;
   /** Resolves a Markdown image path such as ./images/x.svg to its bundled URL. */
@@ -86,6 +88,9 @@ export const posts: Post[] = Object.entries(sources)
       tags: Array.isArray(data.tags) ? data.tags : [],
       readingTime: Number(data.readingTime) || 0,
       coverImage: `/insights/${slug}/${str(data.coverImage, "coverImage").replace(/^\.\//, "")}`,
+      coverDisplay:
+        assetUrls[local(str(data.coverImage, "coverImage").replace(/\.png$/, ".svg"))] ??
+        `/insights/${slug}/${str(data.coverImage, "coverImage").replace(/^\.\//, "")}`,
       coverAlt: str(data.coverAlt, "coverAlt"),
       body,
       asset: (src: string) => assetUrls[local(src)],

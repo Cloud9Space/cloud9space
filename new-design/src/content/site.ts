@@ -279,7 +279,7 @@ export const capabilities: Capability[] = [
     offerings: [
       {
         title: "Enterprise web platforms",
-        body: "Role-based applications for operations, planning and analytics, built with React, Next.js and TypeScript on well-defined APIs.",
+        body: "Role-based applications for operations, planning and analytics, built on well-defined APIs.",
       },
       {
         title: "APIs & integration",
@@ -316,7 +316,7 @@ export const capabilities: Capability[] = [
         body: "Code your own team can maintain after we hand over.",
       },
     ],
-    tech: ["React", "Next.js", "TypeScript", "Node.js", "Python", "FastAPI", "Django", "Java", "React Native"],
+    tech: [],
     caseIds: ["field-intelligence", "growth-intelligence", "microplanning"],
   },
   {

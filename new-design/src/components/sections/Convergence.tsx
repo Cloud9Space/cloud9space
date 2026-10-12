@@ -24,26 +24,17 @@ export const Convergence = () => (
           <ConvergenceDiagram />
         </Parallax>
       </Reveal>
-      <div className="lg:col-span-7">
-        <dl className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
-          {roles.map((r, i) => (
-            <Reveal key={r.name} delay={i * 70}>
-              <dt className="flex items-baseline gap-3">
-                <span className="font-heading text-lg font-bold text-foreground">{r.name}</span>
-                <span className="t-meta uppercase tracking-[0.14em] text-primary">{r.role}</span>
-              </dt>
-              <dd className="t-body mt-2 text-sm">{r.body}</dd>
-            </Reveal>
-          ))}
-        </dl>
-        <Reveal className="mt-10 border-l-2 border-primary pl-5">
-          <p className="text-[0.95rem] leading-relaxed text-foreground">
-            A route-to-market platform is a good example: sales pipelines (data), outlets and beats on a map
-            (geospatial), signals that flag under-served territories (AI) and an application regional managers
-            actually use (engineering). Remove any one and the system stops being useful.
-          </p>
-        </Reveal>
-      </div>
+      <dl className="grid overflow-hidden rounded-3xl border border-border bg-card sm:grid-cols-2 lg:col-span-7 lg:self-stretch">
+        {roles.map((r, i) => (
+          <Reveal key={r.name} delay={i * 70} className="flex flex-col justify-center border-border p-6 sm:p-8 [&:not(:last-child)]:border-b sm:[&:nth-child(odd)]:border-r sm:[&:nth-child(n+3)]:border-b-0">
+            <dt>
+              <span className="t-meta uppercase tracking-[0.14em] text-primary">{r.role}</span>
+              <span className="mt-2 block font-heading text-xl font-semibold text-foreground">{r.name}</span>
+            </dt>
+            <dd className="t-body mt-2">{r.body}</dd>
+          </Reveal>
+        ))}
+      </dl>
     </div>
   </Section>
 );
