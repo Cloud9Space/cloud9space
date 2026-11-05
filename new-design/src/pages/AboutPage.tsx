@@ -7,6 +7,7 @@ import { Section, SectionHeader } from "@/components/kit/Section";
 import { Reveal } from "@/components/kit/Reveal";
 import { ConvergenceDiagram } from "@/components/visuals/ConvergenceDiagram";
 import { Credentials } from "@/components/sections/CompanyLeadership";
+import { Ecosystem } from "@/components/sections/Ecosystem";
 import { Approach } from "@/components/sections/Approach";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { TeamSection } from "@/components/sections/Team";
@@ -95,6 +96,7 @@ const AboutPage = () => (
       </div>
     </Section>
 
+    <Ecosystem />
     <TeamSection />
     <Approach />
     <FinalCTA />
