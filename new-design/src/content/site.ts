@@ -6,6 +6,7 @@
  *  - Items marked TODO(content) need confirmation or real input from Cloud9Space before launch.
  */
 
+import type { BrandKey } from "@/content/brandIcons";
 import eyLogo from "@/assets/clients/ey.png";
 import kentrixLogo from "@/assets/clients/kentrix.png";
 import terraHelixLogo from "@/assets/clients/terra-helix.png";
@@ -682,6 +683,93 @@ export type Credential = { name: string; detail: string };
 // TODO(content): add only registrations / programmes that are real and current
 // (e.g. DPIIT recognition, Udyam, NVIDIA Inception, cloud partner status). Section is hidden while empty.
 export const credentials: Credential[] = [];
+
+/* ------------------------------------------------------------------ */
+/* Ecosystem: startup programmes and the platforms we build on         */
+/* ------------------------------------------------------------------ */
+
+/** Logo key from content/brandIcons; entries without one render with a generic icon. */
+export type EcosystemItem = { name: string; logo?: BrandKey };
+
+// TODO(content): confirm current membership of each programme before launch.
+export const startupProgrammes: (EcosystemItem & { logo: BrandKey; detail: string })[] = [
+  {
+    name: "NVIDIA Inception",
+    logo: "nvidia",
+    detail: "Access to NVIDIA's accelerated-computing stack, deep-learning tooling and technical guidance for our AI work.",
+  },
+  {
+    name: "AWS Startups",
+    logo: "amazonaws",
+    detail: "Cloud credits, architecture reviews and support for running data and AI workloads on AWS.",
+  },
+  {
+    name: "Google for Startups",
+    logo: "google",
+    detail: "Google Cloud infrastructure, Gemini models and mentorship from Google's startup team.",
+  },
+  {
+    name: "Microsoft for Startups",
+    logo: "microsoft",
+    detail: "Azure credits, Azure OpenAI access and engineering resources for building production AI.",
+  },
+];
+
+// Technologies we use in delivery. Naming a technology does not imply a partnership with its vendor.
+export const techEcosystem: { name: string; detail: string; items: EcosystemItem[] }[] = [
+  {
+    name: "AI ecosystem",
+    detail: "Frontier and open models, chosen per task for quality, cost and data residency.",
+    items: [
+      { name: "OpenAI", logo: "openai" },
+      { name: "Anthropic", logo: "anthropic" },
+      { name: "Gemini", logo: "googlegemini" },
+      { name: "Mistral", logo: "mistralai" },
+      { name: "Hugging Face", logo: "huggingface" },
+    ],
+  },
+  {
+    name: "Data platforms",
+    detail: "Lakehouse and warehouse platforms with tested, version-controlled transformations.",
+    items: [
+      { name: "Databricks", logo: "databricks" },
+      { name: "Snowflake", logo: "snowflake" },
+      { name: "dbt", logo: "dbt" },
+    ],
+  },
+  {
+    name: "Cloud & infrastructure",
+    detail: "Multi-cloud by design, with containerised services and infrastructure as code.",
+    items: [
+      { name: "AWS", logo: "amazonaws" },
+      { name: "Azure", logo: "microsoftazure" },
+      { name: "Google Cloud", logo: "googlecloud" },
+      { name: "Docker", logo: "docker" },
+      { name: "Kubernetes", logo: "kubernetes" },
+    ],
+  },
+  {
+    name: "Geospatial intelligence",
+    detail: "Enterprise GIS alongside open-source spatial databases, map servers and 3D globes.",
+    items: [
+      { name: "Esri", logo: "esri" },
+      { name: "Mapbox", logo: "mapbox" },
+      { name: "PostGIS" },
+      { name: "GeoServer" },
+      { name: "Cesium", logo: "cesium" },
+    ],
+  },
+  {
+    name: "Engineering",
+    detail: "A dependable core stack for APIs, pipelines, interfaces and delivery.",
+    items: [
+      { name: "Python", logo: "python" },
+      { name: "React", logo: "react" },
+      { name: "PostgreSQL", logo: "postgresql" },
+      { name: "GitHub", logo: "github" },
+    ],
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* Leadership                                                          */

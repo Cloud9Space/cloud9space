@@ -6,6 +6,7 @@ import { Capabilities } from "@/components/sections/Capabilities";
 import { Convergence } from "@/components/sections/Convergence";
 import { AIDepth } from "@/components/sections/AIDepth";
 import { GeoDepth } from "@/components/sections/GeoDepth";
+import { Ecosystem } from "@/components/sections/Ecosystem";
 import { Approach } from "@/components/sections/Approach";
 import { TeamSection } from "@/components/sections/Team";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -20,6 +21,7 @@ const Home = () => (
     <Convergence />
     <AIDepth />
     <GeoDepth />
+    <Ecosystem />
     <Approach />
     <TeamSection />
     <FinalCTA />

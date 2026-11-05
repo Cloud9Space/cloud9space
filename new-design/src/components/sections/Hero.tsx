@@ -21,8 +21,7 @@ export const Hero = () => (
           Engineering intelligent systems for a data&#8209;driven world.
         </h1>
         <p className="t-lead mt-6 max-w-xl">
-          Cloud9Space is a specialist engineering team for AI, data and geospatial systems. We take them from first
-          architecture to production, built to hold up under real-world data.
+          Cloud9Space is a specialist engineering team focused on AI, data, and geospatial systems. We take solutions from initial architecture to production, building systems designed to perform reliably with real-world data.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a href="#capabilities" className="btn-light">
